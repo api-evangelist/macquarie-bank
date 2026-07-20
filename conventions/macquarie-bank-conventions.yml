@@ -1,0 +1,48 @@
+generated: '2026-07-20'
+method: derived
+source: |
+  Derived from the harvested DSB Consumer Data Standards CDR Banking API OpenAPI
+  (v1.36.0) + live probes of api.macquariebank.io. Cross-links authentication/,
+  scopes/, errors/, lifecycle/.
+authentication:
+  public: none (x-v header only) for PRD + discovery
+  data_sharing: FAPI 1.0 Advanced (OAuth2 auth-code + PKCE, OIDC, MTLS-bound tokens)
+  see: authentication/macquarie-bank-authentication.yml
+versioning:
+  style: header
+  request_header: x-v
+  response_headers: [x-v, x-min-v, x-max-v]
+  note: Mandatory per-endpoint version negotiation; missing x-v -> 400 Header/Missing.
+pagination:
+  style: page-number
+  params:
+  - page
+  - page-size
+  response_fields:
+  - meta.totalRecords
+  - meta.totalPages
+  - links.self
+  - links.first
+  - links.prev
+  - links.next
+  - links.last
+  note: CDS list endpoints (products, accounts, transactions, payees, direct debits,
+    scheduled payments) are page-numbered.
+request_tracing:
+  interaction_id_header: x-fapi-interaction-id
+  note: FAPI interaction id echoed on data-sharing responses for correlation.
+idempotency:
+  supported: false
+  note: Product Reference Data and data-sharing surfaces harvested here are read-only
+    (GET); there is no state-changing operation and no idempotency-key contract.
+error_envelope:
+  format: cds-error
+  see: errors/macquarie-bank-problem-types.yml
+  shape: '{ "errors": [ { "code": "urn:au-cds:error:...", "title": "...", "detail": "..." } ] }'
+rate_limiting:
+  note: CDR data holders enforce Consumer Data Standards traffic-threshold NFRs
+    (per-session and per-consumer transaction thresholds); specific signalling
+    headers are not published on the public PRD surface.
+metadata:
+  response_wrapper: '{ data, links, meta }'
+  note: All CDS responses wrap the payload in a top-level data object with links and meta.

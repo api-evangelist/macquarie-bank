@@ -1,0 +1,25 @@
+generated: '2026-07-20'
+method: searched
+source: |
+  Macquarie developer portal (developer.macquariebank.io, branded "Macquarie
+  Connect - Sandbox") + Macquarie DEFT integration documentation. The portal is
+  registration-gated (returns 403 to unauthenticated clients), so published test
+  values are not extractable without registration; the sandbox environment itself
+  is confirmed to exist.
+environments:
+- name: production-public-prd
+  base_url: https://api.macquariebank.io/cds-au/v1/banking
+  auth: none (x-v header only)
+  note: Public CDR Product Reference Data + discovery are directly callable with no
+    sandbox needed; safe to read live.
+- name: macquarie-connect-sandbox
+  portal: https://developer.macquariebank.io/devportal/
+  registration_required: true
+  covers: DEFT payments (tokenised card, bank account, direct debit) APIs
+  note: Developer sandbox for the DEFT payments platform; obtain sandbox credentials
+    and test values through developer-portal registration. No published test card /
+    account values captured (portal is access-gated; nothing fabricated here).
+cdr_data_sharing:
+  note: The CDR consumer-data-sharing surface is exercised against the CDR ecosystem
+    (data holder + accredited data recipient) under ADR accreditation, not an open
+    public sandbox.

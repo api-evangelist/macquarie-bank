@@ -1,0 +1,38 @@
+generated: '2026-07-20'
+method: searched
+source: live probes of /.well-known/ on api.macquariebank.io, developer.macquariebank.io, www.macquarie.com.au
+note: |
+  No .well-known discovery document returned HTTP 200. The api.macquariebank.io
+  gateway answers /.well-known/openid-configuration with an HTTP 400 CDS-style
+  error envelope (not a usable OIDC document); the developer portal is bot-gated
+  (403). Macquarie's CDR OIDC discovery / register metadata is published through
+  the CDR Register and the accredited-data-recipient onboarding flow, not at a
+  public unauthenticated .well-known path on the data-holder host. Absence is
+  recorded as valid negative data; no WellKnown pointer is wired.
+host: https://api.macquariebank.io
+documents:
+- path: /.well-known/security.txt
+  host: api.macquariebank.io
+  status: 403
+- path: /.well-known/openid-configuration
+  host: api.macquariebank.io
+  status: 400
+  note: returns a CDS error envelope, not an OIDC discovery document
+- path: /.well-known/oauth-authorization-server
+  host: api.macquariebank.io
+  status: 404
+- path: /cds-au/v1/.well-known/openid-configuration
+  host: api.macquariebank.io
+  status: 404
+- path: /.well-known/api-catalog
+  host: api.macquariebank.io
+  status: 404
+- path: /.well-known/security.txt
+  host: developer.macquariebank.io
+  status: 403
+- path: /.well-known/openid-configuration
+  host: developer.macquariebank.io
+  status: 403
+- path: /.well-known/security.txt
+  host: www.macquarie.com.au
+  status: 404

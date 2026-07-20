@@ -1,0 +1,12 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/macquarie-bank-cds-banking-products-openapi.yml
+skills:
+- file: macquarie-bank-list-banking-products.md
+  name: List Macquarie Bank public products
+  api: openapi/macquarie-bank-cds-banking-products-openapi.yml
+  operations: [listBankingProducts, getBankingProductDetail]
+- file: macquarie-bank-share-account-data.md
+  name: Share Macquarie Bank account data (CDR)
+  api: openapi/macquarie-bank-cds-banking-products-openapi.yml
+  operations: [listBankingAccounts, getBankingBalance, listBankingTransactions, getBankingTransactionDetail]

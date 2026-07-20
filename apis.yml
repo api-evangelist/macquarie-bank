@@ -116,6 +116,38 @@ apis:
     and one-off payments. Documentation and access require registration through the
     developer portal (no unauthenticated public base URL is published).
 common:
+- type: DomainSecurity
+  url: security/macquarie-bank-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/macquarie-bank-agentic-access.yml
+- type: Authentication
+  url: authentication/macquarie-bank-authentication.yml
+- type: OAuthScopes
+  url: scopes/macquarie-bank-scopes.yml
+- type: Conformance
+  url: conformance/macquarie-bank-conformance.yml
+- type: ErrorCatalog
+  url: errors/macquarie-bank-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/macquarie-bank-lifecycle.yml
+- type: StatusPage
+  url: https://api.macquariebank.io/cds-au/v1/discovery/status
+- type: Deprecation
+  url: lifecycle/macquarie-bank-lifecycle.yml
+- type: Conventions
+  url: conventions/macquarie-bank-conventions.yml
+- type: DataModel
+  url: data-model/macquarie-bank-data-model.yml
+- type: MCPServer
+  url: mcp/macquarie-bank-mcp.yml
+- type: Overlay
+  url: overlays/macquarie-bank-cds-banking-products-overlay.yaml
+- type: LLMsTxt
+  url: llms/macquarie-bank-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Sandbox
+  url: sandbox/macquarie-bank-sandbox.yml
 - type: Website
   url: https://www.macquarie.com.au/
 - type: DeveloperPortal
@@ -126,6 +158,10 @@ common:
   url: https://www.linkedin.com/company/macquarie-group/
 - type: CDRRegister
   url: https://www.cdr.gov.au/find-a-provider
+- type: Support
+  url: https://www.macquarie.com.au/help.html
+- type: APIReference
+  url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

@@ -1,0 +1,35 @@
+generated: '2026-07-20'
+method: searched
+source: |
+  DSB Consumer Data Standards (versioning model) + harvested OpenAPI (per-operation
+  x-version) + Macquarie DEFT card-payments retirement notice + live discovery
+  status endpoint.
+versioning:
+  scheme: header
+  header: x-v
+  negotiation: |
+    CDS per-endpoint version negotiation. Clients send x-v with the requested
+    integer version; responses echo x-v and advertise x-min-v/x-max-v. Confirmed
+    live: Get Products responds x-v:3; discovery status responds x-v:1.
+  docs: https://consumerdatastandardsaustralia.github.io/standards/#versioning
+  current_versions:
+    getBankingProducts: '5'
+    getBankingProductDetail: '6'
+    discoveryStatus: '1'
+deprecation:
+  policy: |
+    CDS retires endpoint versions as obsolete; the OpenAPI links obsolete versions
+    per operation (Get Products v1-v4, Get Product Detail v1-v6). Consumers migrate
+    by raising the x-v version they request.
+  sunsets:
+  - product: DEFT card payments
+    date: '2026-10-01'
+    note: Macquarie has announced that DEFT card payments cease from 1 October 2026.
+status_page:
+  url: https://api.macquariebank.io/cds-au/v1/discovery/status
+  type: cds-discovery-status
+  note: Machine-readable CDS availability endpoint (GET /discovery/status; live 200,
+    status OK). GET /discovery/outages publishes planned outages.
+sla:
+  note: CDR data holders operate under Consumer Data Standards availability/performance
+    NFRs (data holders target high availability with defined planned-outage reporting).

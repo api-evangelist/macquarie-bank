@@ -1,0 +1,71 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/macquarie-bank-cds-banking-products-openapi.yml
+note: |
+  No official Macquarie or CDR-wide hosted MCP server was found. This is a CANDIDATE
+  tool surface derived one-tool-per-operation from the harvested CDS Banking API.
+  The public Product Reference Data tools (list_banking_products, get_banking_product_detail)
+  are unauthenticated (x-v header only); all account/transaction tools require CDR
+  Accredited Data Recipient status, consumer consent, and MTLS-bound OAuth tokens.
+server:
+  name: macquarie-bank
+  transport: http
+tools:
+- name: list_banking_products
+  description: List Macquarie Bank publicly offered banking products (unauthenticated).
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listBankingProducts
+- name: get_banking_product_detail
+  description: Get detail for a single publicly offered product (unauthenticated).
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#getBankingProductDetail
+- name: list_banking_accounts
+  description: List a consenting consumer's accounts (requires CDR consent).
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listBankingAccounts
+- name: get_banking_account_detail
+  description: Get detail for a specific account.
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#getBankingAccountDetail
+- name: get_banking_balance
+  description: Get the balance for a specific account.
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#getBankingBalance
+- name: list_banking_balances_bulk
+  description: List balances across all consented accounts.
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listBankingBalancesBulk
+- name: list_banking_balances_specific_accounts
+  description: List balances for a supplied set of accounts.
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listBankingBalancesSpecificAccounts
+- name: list_banking_transactions
+  description: List transactions for an account.
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listBankingTransactions
+- name: get_banking_transaction_detail
+  description: Get detail for a specific transaction.
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#getBankingTransactionDetail
+- name: list_direct_debits
+  description: List direct debits for an account.
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listDirectDebits
+- name: list_direct_debits_bulk
+  description: List direct debits across all consented accounts.
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listDirectDebitsBulk
+- name: list_direct_debits_specific_accounts
+  description: List direct debits for a supplied set of accounts.
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listDirectDebitsSpecificAccounts
+- name: list_scheduled_payments
+  description: List scheduled payments for an account.
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listScheduledPayments
+- name: list_scheduled_payments_bulk
+  description: List scheduled payments across all consented accounts.
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listScheduledPaymentsBulk
+- name: list_scheduled_payments_specific_accounts
+  description: List scheduled payments for a supplied set of accounts.
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listScheduledPaymentsSpecificAccounts
+- name: list_instalment_plans
+  description: List instalment plans for an account.
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listInstalmentPlans
+- name: list_instalment_plans_bulk
+  description: List instalment plans across all consented accounts.
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listInstalmentPlansBulk
+- name: list_banking_payees
+  description: List saved payees.
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listBankingPayees
+- name: get_banking_payee_detail
+  description: Get detail for a specific payee.
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#getBankingPayeeDetail

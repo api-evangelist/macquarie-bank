@@ -1,0 +1,56 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/macquarie-bank-cds-banking-products-openapi.yml
+note: |
+  Entity-relationship graph derived from the DSB Consumer Data Standards CDR
+  Banking API schemas and id-reference fields. The public surface exposes Product;
+  the consumer-authorised data-sharing surface exposes Account and its children.
+entities:
+- name: BankingProduct
+  key: productId
+  public: true
+  description: A publicly offered banking product (Get Products / Get Product Detail).
+  detail_schema: ResponseBankingProductByIdV5
+- name: BankingAccount
+  key: accountId
+  description: A consumer's account (requires consent).
+- name: BankingBalance
+  key: accountId
+  description: Current/available balance for an account.
+- name: BankingTransaction
+  key: transactionId
+  description: A transaction on an account.
+- name: BankingDirectDebit
+  key: accountId
+  description: A direct-debit authorisation on an account.
+- name: BankingScheduledPayment
+  key: scheduledPaymentId
+  description: A scheduled/recurring payment from an account.
+- name: BankingPayee
+  key: payeeId
+  description: A saved payee.
+relationships:
+- from: BankingAccount
+  to: BankingBalance
+  type: has_one
+  via: accountId
+- from: BankingAccount
+  to: BankingTransaction
+  type: has_many
+  via: accountId
+- from: BankingAccount
+  to: BankingDirectDebit
+  type: has_many
+  via: accountId
+- from: BankingAccount
+  to: BankingScheduledPayment
+  type: has_many
+  via: accountId
+- from: BankingScheduledPayment
+  to: BankingPayee
+  type: belongs_to
+  via: payeeReference
+- from: BankingAccount
+  to: BankingProduct
+  type: belongs_to
+  via: productCategory

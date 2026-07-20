@@ -1,0 +1,62 @@
+generated: '2026-07-20'
+method: searched
+source: |
+  Australian Consumer Data Right (CDR) security profile / DSB Consumer Data
+  Standards (InfoSec) + Macquarie Open Banking page. The harvested CDS Banking
+  OpenAPI declares no inline components.securitySchemes (CDR security is defined
+  out-of-band by the standards), so this profile is authored from the published
+  CDR/CDS security model and Macquarie's data-holder implementation.
+docs: https://www.macquarie.com.au/digital-banking/open-banking.html
+summary:
+  types: [none, oauth2, openIdConnect, mutualTLS]
+  tiers:
+  - public-unauthenticated
+  - cdr-data-sharing
+  oauth2_flows: [authorizationCode]
+tiers:
+- name: public-unauthenticated
+  applies_to:
+  - Macquarie Bank CDR Product Reference Data API
+  - Macquarie Bank CDR Discovery Status API
+  auth: none
+  required_headers:
+  - name: x-v
+    description: Mandatory CDS API version header. Requests without it return HTTP 400
+      urn:au-cds:error:cds-all:Header/Missing.
+  note: Public PRD (Get Products / Get Product Detail) and CDS discovery status/outages
+    are openly callable over HTTPS with no credential, only the x-v version header.
+- name: cdr-data-sharing
+  applies_to:
+  - Macquarie Bank CDR Banking Data Sharing API
+  profile: FAPI 1.0 Advanced (CDR security profile)
+  schemes:
+  - name: openid-connect
+    type: openIdConnect
+    note: OIDC Hybrid flow; ID Token + authorization code.
+  - name: oauth2
+    type: oauth2
+    flows:
+    - flow: authorizationCode
+      note: Authorization Code with PKCE; Pushed Authorization Requests (PAR) required;
+        request objects signed (private_key_jwt client authentication).
+  - name: mutual-tls
+    type: mutualTLS
+    note: Access tokens are MTLS sender-constrained (RFC 8705). Client transport
+      certificates issued under the CDR PKI.
+  accreditation: Requires CDR Accredited Data Recipient (ADR) status registered on the
+    CDR Register plus explicit consumer consent. Not openly callable.
+schemes:
+- name: none
+  type: none
+  sources: [public PRD + discovery endpoints]
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+  sources: [CDR security profile]
+- name: openid-connect
+  type: openIdConnect
+  sources: [CDR security profile]
+- name: mutual-tls
+  type: mutualTLS
+  sources: [CDR security profile]

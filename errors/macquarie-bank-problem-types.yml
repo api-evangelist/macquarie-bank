@@ -1,0 +1,53 @@
+generated: '2026-07-20'
+method: derived
+source: |
+  Derived from the harvested DSB Consumer Data Standards CDR Banking API OpenAPI
+  (v1.36.0) 4xx responses (ResponseErrorListV2) enriched with the DSB error-code
+  registry. The error envelope was confirmed live against
+  https://api.macquariebank.io/cds-au/v1/banking/products (no x-v header -> 400).
+format: cds-error
+note: |
+  Consumer Data Standards use their own error envelope, NOT RFC 9457
+  application/problem+json. Errors are returned as an `errors` array; each error
+  carries a urn:au-cds:error:* code, a human title, and a detail.
+envelope:
+  media_type: application/json
+  shape: '{ "errors": [ { "code": "urn:au-cds:error:...", "title": "...", "detail": "..." } ] }'
+  example_confirmed_live: '{"errors":[{"code":"urn:au-cds:error:cds-all:Header/Missing","title":"Missing Required Header","detail":"x-v"}]}'
+problems:
+- status: 400
+  code: urn:au-cds:error:cds-all:Header/Missing
+  title: Missing Required Header
+  remediation: 'Supply the mandatory x-v API version header (e.g. x-v: 3).'
+  confirmed_live: true
+- status: 400
+  code: urn:au-cds:error:cds-all:Header/InvalidVersion
+  title: Invalid Version
+  remediation: Send an integer x-v value within the supported version range.
+- status: 400
+  code: urn:au-cds:error:cds-all:Field/Missing
+  title: Missing Required Field
+- status: 400
+  code: urn:au-cds:error:cds-all:Field/Invalid
+  title: Invalid Field
+- status: 400
+  code: urn:au-cds:error:cds-all:Field/InvalidDateTime
+  title: Invalid Date
+- status: 400
+  code: urn:au-cds:error:cds-all:Field/InvalidPageSize
+  title: Invalid Page Size
+- status: 404
+  code: urn:au-cds:error:cds-all:Resource/NotFound
+  title: Resource Not Found
+  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#getBankingProductDetail
+- status: 404
+  code: urn:au-cds:error:cds-all:Resource/Invalid
+  title: Invalid Resource
+- status: 406
+  code: urn:au-cds:error:cds-all:Header/UnsupportedVersion
+  title: Unsupported Version
+  remediation: Request a supported x-v version; inspect x-min-v/x-max-v.
+- status: 422
+  code: urn:au-cds:error:cds-all:Field/InvalidPage
+  title: Invalid Page
+  remediation: Request a page within the available range (see meta.totalPages).

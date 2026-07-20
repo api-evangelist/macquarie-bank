@@ -1,0 +1,40 @@
+generated: '2026-07-20'
+method: derived
+source: |
+  Derived from the harvested DSB Consumer Data Standards CDR Banking API OpenAPI
+  (v1.36.0) + live probes of api.macquariebank.io + the CDR security profile.
+standards:
+- id: consumer-data-standards-au
+  conforms: true
+  evidence: Live endpoints under /cds-au/v1 conform to the DSB Consumer Data Standards
+    (CDR Banking API). GET /banking/products returns 200 with x-v:3; version negotiation
+    via the x-v header confirmed (missing header returns 400 urn:au-cds:error:cds-all:Header/Missing).
+- id: cdr-open-banking
+  conforms: true
+  evidence: Macquarie Bank Limited is a designated CDR data holder listed on the CDR Register.
+- id: fapi-1.0-advanced
+  conforms: true
+  evidence: CDR data-sharing surface uses the FAPI 1.0 Advanced security profile (PAR,
+    MTLS sender-constrained tokens, private_key_jwt) per the CDS InfoSec profile.
+- id: oauth2
+  conforms: true
+  evidence: Authorization Code flow with PKCE for consumer-authorised data sharing.
+- id: oidc
+  conforms: true
+  evidence: OpenID Connect Hybrid flow used for CDR consent/authentication.
+- id: mutual-tls
+  conforms: true
+  evidence: Access tokens are MTLS sender-constrained (RFC 8705) under the CDR PKI.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use the CDS error envelope ({errors:[{code,title,detail}]} with
+    urn:au-cds:error:* codes), not application/problem+json.
+- id: pagination
+  conforms: true
+  evidence: List endpoints use CDS page/page-size query params with meta.totalRecords/totalPages.
+- id: psd2
+  conforms: false
+  evidence: Australian CDR regime, not EU PSD2.
+- id: idempotency
+  conforms: false
+  evidence: Read-only (GET) surface; no idempotency-key contract.

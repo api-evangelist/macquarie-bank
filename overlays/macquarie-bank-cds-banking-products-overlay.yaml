@@ -1,0 +1,28 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Macquarie Bank CDR Banking API
+  version: 1.0.0
+extends: openapi/macquarie-bank-cds-banking-products-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: macquarie-bank
+    x-apievangelist-standard: Consumer Data Standards (AU) CDR Banking API
+    x-apievangelist-public-base-url: https://api.macquariebank.io/cds-au/v1
+    x-apievangelist-notes: >-
+      Harvested spec is the shared DSB Consumer Data Standards CDR Banking API
+      (v1.36.0), not a Macquarie-proprietary contract. Macquarie's live endpoints
+      conform to it. Public PRD + discovery are unauthenticated (x-v header only);
+      account/transaction data sharing requires CDR ADR accreditation, consent and
+      MTLS-bound OAuth (FAPI 1.0 Advanced).
+- target: $.servers
+  update:
+  - description: Macquarie Bank live CDR data-holder base (public PRD + discovery)
+    url: https://api.macquariebank.io/cds-au/v1
+- target: $.paths['/banking/products'].get
+  update:
+    x-apievangelist-public: true
+    x-apievangelist-verified: 'GET returns 200 with x-v:3 and 21 products (brand Macquarie Bank Limited)'
+- target: $.paths['/banking/products/{productId}'].get
+  update:
+    x-apievangelist-public: true

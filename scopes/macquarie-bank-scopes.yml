@@ -1,0 +1,36 @@
+generated: '2026-07-20'
+method: searched
+source: |
+  Australian Consumer Data Right (CDR) authorisation scopes, DSB Consumer Data
+  Standards. Applies to the authenticated CDR Banking Data Sharing surface. The
+  harvested CDS OpenAPI declares no inline oauth2 securitySchemes (CDR scopes are
+  defined by the standards, not per data holder), so scopes are authored from the
+  Consumer Data Standards authorisation-scopes reference.
+docs: https://consumerdatastandardsaustralia.github.io/standards/#authorisation-scopes
+applies_to: Macquarie Bank CDR Banking Data Sharing API
+schemes:
+- name: cdr-oidc
+  profile: FAPI 1.0 Advanced
+  flows:
+  - flow: authorizationCode
+scopes:
+- scope: openid
+  description: OpenID Connect authentication; required for CDR consent flows.
+- scope: profile
+  description: Standard OIDC profile claim scope.
+- scope: bank:accounts.basic:read
+  description: Read masked account numbers and basic account details.
+- scope: bank:accounts.detail:read
+  description: Read full account and product-specific detail, including unmasked account numbers.
+- scope: bank:transactions:read
+  description: Read account transactions.
+- scope: bank:payees:read
+  description: Read saved payees.
+- scope: bank:regular_payments:read
+  description: Read direct debits and scheduled payments.
+- scope: common:customer.basic:read
+  description: Read basic customer (name, occupation) or organisation profile.
+- scope: common:customer.detail:read
+  description: Read detailed customer contact and identity information.
+- scope: cdr:registration
+  description: Dynamic client registration under the CDR Register (ADR onboarding).
