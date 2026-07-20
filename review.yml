@@ -1,0 +1,96 @@
+aid: macquarie-bank
+name: Macquarie Bank
+review:
+  question: Does Macquarie Bank expose a live, public CDR Product Reference Data API,
+    and is any published contract bank-proprietary or the shared CDS standard?
+  answer: true
+  date: '2026-07-20'
+  reviewer: API Evangelist
+  cdrPrdConfirmed: true
+  cdrPrdBaseUrl: https://api.macquariebank.io/cds-au/v1/banking/products
+  developerPortal: https://developer.macquariebank.io/devportal/
+  specProvenance: |
+    The harvested spec is the shared DSB Consumer Data Standards "CDR Banking API"
+    (openapi 3.0.3, v1.36.0, contact contact@dsb.gov.au), NOT a Macquarie-proprietary
+    contract. Macquarie does not publish its own downloadable OpenAPI for the PRD
+    surface; its live endpoints conform to this common standard. Saved verbatim at
+    openapi/macquarie-bank-cds-banking-products-openapi.yml.
+findings:
+  summary: |
+    Macquarie Bank Limited is a designated CDR (Consumer Data Right / Open Banking)
+    data holder and exposes a genuine public, unauthenticated Product Reference Data
+    (PRD) API. GET https://api.macquariebank.io/cds-au/v1/banking/products returned
+    HTTP 200 with an x-v: 3 response header and a data.products array of 21 products
+    from brand "Macquarie Bank Limited" across seven product categories
+    (TRANS_AND_SAVINGS_ACCOUNTS, RESIDENTIAL_MORTGAGES, CRED_AND_CHRG_CARDS,
+    TERM_DEPOSITS, OVERDRAFTS, BUSINESS_LOANS, REGULATED_TRUST_ACCOUNTS). Get Product
+    Detail (GET /banking/products/{productId}) and the CDS discovery status endpoint
+    (GET /discovery/status) also returned HTTP 200. The request is version-negotiated:
+    calling /banking/products without an x-v header returns HTTP 400, confirming CDS
+    conformance rather than a generic web response.
+
+    Beyond the unauthenticated PRD, Macquarie runs a registered developer portal at
+    developer.macquariebank.io/devportal (returns HTTP 403 to unauthenticated bots
+    but resolves and serves - registration-gated), which documents the DEFT payments
+    platform (tokenised card, bank account and direct debit APIs). The broader CDR
+    banking data-sharing surface (accounts, balances, transactions) is not openly
+    callable: it requires Accredited Data Recipient status, consumer consent, and the
+    CDR OAuth2 / OpenID Connect FAPI security profile over MTLS.
+
+    Macquarie does not publish a bank-proprietary OpenAPI for the PRD; the contract
+    captured here is the shared DSB Consumer Data Standards CDR Banking API spec.
+  ownershipStatus: |
+    Not a mutual / customer-owned bank. Macquarie Bank Limited is a wholly-owned,
+    shareholder-owned ADI subsidiary of Macquarie Group Limited (ASX:MQG), a publicly
+    listed global financial services group headquartered in Sydney, Australia.
+  authModel: |
+    Two-tier. (1) Public PRD + CDS discovery endpoints are unauthenticated, requiring
+    only the mandatory x-v API version header. (2) Consumer data sharing uses the CDR
+    security profile: OAuth2 / OpenID Connect (FAPI 1.0 Advanced-based), MTLS-bound
+    tokens, and Accredited Data Recipient registration via the CDR Register.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.macquariebank.io/cds-au/v1/banking/products
+      documented: true
+      note: Public CDR Product Reference Data (Get Products / Get Product Detail). HTTP 200, x-v response header, data.products array.
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.macquariebank.io/cds-au/v1/discovery
+      documented: true
+      note: Public CDS discovery status/outages. GET /discovery/status returned HTTP 200.
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.macquariebank.io/cds-au/v1/banking
+      documented: true
+      note: Authenticated CDR banking data sharing (accounts/transactions). Requires ADR accreditation + CDR OAuth2/OIDC FAPI over MTLS. Not openly callable.
+  endpointsConfirmed:
+    - GET https://api.macquariebank.io/cds-au/v1/banking/products -> HTTP 200 (x-v: 3, 21 products)
+    - GET https://api.macquariebank.io/cds-au/v1/banking/products/{productId} -> HTTP 200
+    - GET https://api.macquariebank.io/cds-au/v1/discovery/status -> HTTP 200
+    - GET https://api.macquariebank.io/cds-au/v1/banking/products (no x-v header) -> HTTP 400 (version header required)
+sources:
+  - url: https://www.macquarie.com.au/digital-banking/open-banking.html
+    type: Documentation
+    note: Macquarie Open Banking page; states CDR-compliant APIs for product data and consumer data sharing. Returns 403 to bots but is the canonical human page.
+  - url: https://api.macquariebank.io/cds-au/v1/banking/products
+    type: APIReference
+    note: Live public PRD endpoint; HTTP 200 with x-v:3 and data.products (21 products, brand "Macquarie Bank Limited").
+  - url: https://developer.macquariebank.io/devportal/
+    type: DeveloperPortal
+    note: Registered Macquarie developer portal (DEFT payments APIs); resolves, registration-gated (403 to bots).
+  - url: https://consumerdatastandardsaustralia.github.io/standards/includes/swagger/cds_banking.yaml
+    type: OpenAPI
+    note: Source of the harvested spec - DSB Consumer Data Standards CDR Banking API v1.36.0 (shared standard, not proprietary).
+  - url: https://www.cdr.gov.au/find-a-provider
+    type: Reference
+    note: CDR Register listing of accredited data holders/recipients, including Macquarie Bank Limited.
+actions:
+  openapiPath: openapi/macquarie-bank-cds-banking-products-openapi.yml
+  apisYmlUpdated: true
+  reason: |
+    Bootstrap identity + real public-API harvest. Listed the confirmed live public
+    CDR PRD API and CDS discovery status API, the authenticated CDR data sharing
+    surface, and the registered DEFT developer portal. Saved the shared DSB CDS
+    Banking API OpenAPI (v1.36.0) verbatim; noted provenance as the common standard,
+    not a Macquarie-proprietary contract.

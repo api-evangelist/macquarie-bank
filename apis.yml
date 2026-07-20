@@ -1,0 +1,131 @@
+aid: macquarie-bank
+url: https://raw.githubusercontent.com/api-evangelist/macquarie-bank/refs/heads/main/apis.yml
+name: Macquarie Bank
+kind: company
+description: Macquarie Bank Limited is an Australian authorised deposit-taking institution
+  (ADI) and the retail and business banking arm of Macquarie Group Limited, the ASX-listed
+  (ASX:MQG) global financial services group headquartered in Sydney. It is not a mutual
+  or customer-owned bank; it is a wholly-owned, shareholder-owned subsidiary of a publicly
+  listed parent. Its digital bank offers transaction and savings accounts, home loans,
+  credit and charge cards, term deposits, overdrafts and business lending. As a designated
+  data holder under Australia's Consumer Data Right (CDR / Open Banking), Macquarie
+  Bank exposes a public, unauthenticated Product Reference Data (PRD) API conforming
+  to the Consumer Data Standards (CDS), alongside accredited-data-recipient data sharing
+  and a registered developer portal that documents its DEFT payments platform.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial
+- Banks
+- Open Banking
+- CDR
+- Consumer Data Right
+- Consumer Banking
+- Australia
+- Product Reference Data
+- Payments
+created: '2026-07-20'
+modified: '2026-07-20'
+specificationVersion: '0.19'
+apis:
+- aid: macquarie-bank:macquarie-bank-cdr-product-reference-data-api
+  name: Macquarie Bank CDR Product Reference Data API
+  tags:
+  - CDR
+  - Open Banking
+  - Product Reference Data
+  - Banking Products
+  - Public
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
+  baseURL: https://api.macquariebank.io/cds-au/v1/banking
+  properties:
+  - url: https://www.macquarie.com.au/digital-banking/open-banking.html
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-products
+    type: APIReference
+  - url: openapi/macquarie-bank-cds-banking-products-openapi.yml
+    type: OpenAPI
+  description: Public, unauthenticated Consumer Data Right Product Reference Data API.
+    Get Products (GET /banking/products) and Get Product Detail (GET /banking/products/{productId})
+    return Macquarie Bank Limited's publicly offered banking products - transaction
+    and savings accounts, residential mortgages, credit and charge cards, term deposits,
+    overdrafts, business loans and regulated trust accounts - conforming to the DSB
+    Consumer Data Standards. Confirmed live returning HTTP 200 with an x-v response
+    header and a data.products array (21 products at time of review).
+- aid: macquarie-bank:macquarie-bank-cdr-discovery-status-api
+  name: Macquarie Bank CDR Discovery Status API
+  tags:
+  - CDR
+  - Open Banking
+  - Discovery
+  - Status
+  - Public
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
+  baseURL: https://api.macquariebank.io/cds-au/v1/discovery
+  properties:
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#common-apis_common-apis_get-status
+    type: APIReference
+  - url: openapi/macquarie-bank-cds-banking-products-openapi.yml
+    type: OpenAPI
+  description: Public, unauthenticated Consumer Data Standards discovery endpoints
+    (GET /discovery/status and GET /discovery/outages) that publish the availability
+    and planned outages of Macquarie Bank's CDR data holder implementation. GET /discovery/status
+    confirmed live returning HTTP 200.
+- aid: macquarie-bank:macquarie-bank-cdr-banking-data-sharing-api
+  name: Macquarie Bank CDR Banking Data Sharing API
+  tags:
+  - CDR
+  - Open Banking
+  - Data Sharing
+  - Accounts
+  - Transactions
+  - Authenticated
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
+  baseURL: https://api.macquariebank.io/cds-au/v1/banking
+  properties:
+  - url: https://www.macquarie.com.au/digital-banking/open-banking.html
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api
+    type: APIReference
+  - url: openapi/macquarie-bank-cds-banking-products-openapi.yml
+    type: OpenAPI
+  description: Consumer-authorised CDR banking data sharing (accounts, balances, transactions,
+    payees, direct debits, scheduled payments) exposed per the DSB Consumer Data Standards.
+    Access requires CDR accreditation as an Accredited Data Recipient and consumer
+    consent, secured with the CDR OAuth2 / OpenID Connect (FAPI-based) security profile
+    over MTLS - not an openly callable endpoint.
+- aid: macquarie-bank:macquarie-deft-payments-api
+  name: Macquarie DEFT Payments API
+  tags:
+  - Payments
+  - Direct Debit
+  - Developer Portal
+  - Business Banking
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.macquariebank.io/devportal/
+  properties:
+  - url: https://developer.macquariebank.io/devportal/
+    type: DeveloperPortal
+  - url: https://www.macquarie.com.au/help/business/deft.html
+    type: Documentation
+  description: Macquarie's DEFT payments platform, surfaced through the registered
+    Macquarie developer portal, lets businesses build branded payment experiences
+    with tokenised credit card, bank account and direct debit APIs, payment schedules
+    and one-off payments. Documentation and access require registration through the
+    developer portal (no unauthenticated public base URL is published).
+common:
+- type: Website
+  url: https://www.macquarie.com.au/
+- type: DeveloperPortal
+  url: https://developer.macquariebank.io/devportal/
+- type: Documentation
+  url: https://www.macquarie.com.au/digital-banking/open-banking.html
+- type: LinkedIn
+  url: https://www.linkedin.com/company/macquarie-group/
+- type: CDRRegister
+  url: https://www.cdr.gov.au/find-a-provider
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
