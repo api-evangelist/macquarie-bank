@@ -24,7 +24,7 @@ tags:
 - Product Reference Data
 - Payments
 created: '2026-07-20'
-modified: '2026-07-20'
+modified: '2026-07-21'
 specificationVersion: '0.19'
 apis:
 - aid: macquarie-bank:macquarie-bank-cdr-product-reference-data-api
@@ -72,30 +72,131 @@ apis:
     (GET /discovery/status and GET /discovery/outages) that publish the availability
     and planned outages of Macquarie Bank's CDR data holder implementation. GET /discovery/status
     confirmed live returning HTTP 200.
-- aid: macquarie-bank:macquarie-bank-cdr-banking-data-sharing-api
-  name: Macquarie Bank CDR Banking Data Sharing API
+- aid: macquarie-bank:macquarie-bank-cdr-accounts-balances-api
+  name: Macquarie Bank CDR Accounts & Balances API
   tags:
   - CDR
   - Open Banking
-  - Data Sharing
   - Accounts
+  - Balances
+  - Data Sharing
+  - Authorized
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
+  baseURL: https://api.macquariebank.io/cds-au/v1/banking/accounts
+  properties:
+  - url: https://www.macquarie.com.au/digital-banking/open-banking.html
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-accounts
+    type: APIReference
+  - url: openapi/macquarie-bank-cds-banking-products-openapi.yml
+    type: OpenAPI
+  description: Consumer-authorised CDR account information sharing per the DSB Consumer
+    Data Standards CDR Banking API - Get Accounts (GET /banking/accounts), Get Bulk
+    Balances (GET /banking/accounts/balances), Get Account Balance (GET /banking/accounts/{accountId}/balance)
+    and Get Account Detail (GET /banking/accounts/{accountId}). NOT publicly callable -
+    access requires Accredited Data Recipient (ADR) status and explicit consumer consent,
+    secured with the CDR OAuth2 / OpenID Connect (FAPI 1.0 Advanced) security profile
+    over MTLS-bound tokens. The listed OpenAPI is the shared DSB standard, not a Macquarie-proprietary
+    contract.
+- aid: macquarie-bank:macquarie-bank-cdr-transactions-api
+  name: Macquarie Bank CDR Transactions API
+  tags:
+  - CDR
+  - Open Banking
   - Transactions
-  - Authenticated
+  - Data Sharing
+  - Authorized
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
   baseURL: https://api.macquariebank.io/cds-au/v1/banking
   properties:
   - url: https://www.macquarie.com.au/digital-banking/open-banking.html
     type: Documentation
-  - url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-transactions-for-account
     type: APIReference
   - url: openapi/macquarie-bank-cds-banking-products-openapi.yml
     type: OpenAPI
-  description: Consumer-authorised CDR banking data sharing (accounts, balances, transactions,
-    payees, direct debits, scheduled payments) exposed per the DSB Consumer Data Standards.
-    Access requires CDR accreditation as an Accredited Data Recipient and consumer
-    consent, secured with the CDR OAuth2 / OpenID Connect (FAPI-based) security profile
-    over MTLS - not an openly callable endpoint.
+  description: Consumer-authorised CDR transaction data sharing per the DSB Consumer
+    Data Standards - Get Transactions For Account (GET /banking/accounts/{accountId}/transactions)
+    and Get Transaction Detail (GET /banking/accounts/{accountId}/transactions/{transactionId}),
+    supporting date, amount and text filters. NOT publicly callable - requires ADR accreditation
+    and consumer consent under the CDR OAuth2 / OpenID Connect (FAPI) profile over MTLS.
+    The listed OpenAPI is the shared DSB standard, not a Macquarie-proprietary contract.
+- aid: macquarie-bank:macquarie-bank-cdr-direct-debits-scheduled-payments-api
+  name: Macquarie Bank CDR Direct Debits & Scheduled Payments API
+  tags:
+  - CDR
+  - Open Banking
+  - Direct Debits
+  - Scheduled Payments
+  - Data Sharing
+  - Authorized
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
+  baseURL: https://api.macquariebank.io/cds-au/v1/banking
+  properties:
+  - url: https://www.macquarie.com.au/digital-banking/open-banking.html
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-direct-debits-for-account
+    type: APIReference
+  - url: openapi/macquarie-bank-cds-banking-products-openapi.yml
+    type: OpenAPI
+  description: Consumer-authorised CDR sharing of authorised direct debits and scheduled/recurring
+    payments per the DSB Consumer Data Standards - Get Direct Debits For Account, Get
+    Bulk Direct Debits, Get Scheduled Payments For Account, Get Scheduled Payments Bulk
+    (GET /banking/accounts/{accountId}/direct-debits, /banking/accounts/direct-debits,
+    /banking/accounts/{accountId}/payments/scheduled, /banking/payments/scheduled).
+    NOT publicly callable - requires ADR accreditation and consumer consent under the
+    CDR OAuth2 / OpenID Connect (FAPI) profile over MTLS. The listed OpenAPI is the
+    shared DSB standard, not a Macquarie-proprietary contract.
+- aid: macquarie-bank:macquarie-bank-cdr-payees-api
+  name: Macquarie Bank CDR Payees API
+  tags:
+  - CDR
+  - Open Banking
+  - Payees
+  - Data Sharing
+  - Authorized
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
+  baseURL: https://api.macquariebank.io/cds-au/v1/banking/payees
+  properties:
+  - url: https://www.macquarie.com.au/digital-banking/open-banking.html
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-payees
+    type: APIReference
+  - url: openapi/macquarie-bank-cds-banking-products-openapi.yml
+    type: OpenAPI
+  description: Consumer-authorised CDR sharing of a customer's saved payees per the
+    DSB Consumer Data Standards - Get Payees (GET /banking/payees) and Get Payee Detail
+    (GET /banking/payees/{payeeId}), covering domestic, international and BILLER payee
+    types. NOT publicly callable - requires Accredited Data Recipient status and consumer
+    consent under the CDR OAuth2 / OpenID Connect (FAPI) profile over MTLS. The listed
+    OpenAPI is the shared DSB standard, not a Macquarie-proprietary contract.
+- aid: macquarie-bank:macquarie-connectivity-data-api
+  name: Macquarie Connectivity & Data API
+  tags:
+  - Payments
+  - Accounts
+  - Business Banking
+  - Developer Portal
+  - Connectivity
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.macquariebank.io/devportal/
+  properties:
+  - url: https://developer.macquariebank.io/devportal/
+    type: DeveloperPortal
+  - url: https://www.macquarie.com.au/help/business/manage-your-accounts/connectivity-services-and-open-banking/macquarie-connectivity-solutions.html
+    type: Documentation
+  description: Macquarie's connectivity / data APIs for business, documented through
+    the registered Macquarie developer portal, let approved businesses and software
+    partners automate account information retrieval and payment operations (balances,
+    transaction history, payment automation) as an alternative to file-based banking.
+    Partner-gated - access, credentials and the OpenAPI/Swagger reference are only
+    available after registration and approval through the developer portal (the portal
+    is edge-protected and returns HTTP 403 to unauthenticated requests); no public,
+    downloadable spec is published, so none is fabricated here.
 - aid: macquarie-bank:macquarie-deft-payments-api
   name: Macquarie DEFT Payments API
   tags:
@@ -160,6 +261,10 @@ common:
   url: https://www.cdr.gov.au/find-a-provider
 - type: Support
   url: https://www.macquarie.com.au/help.html
+- type: PrivacyPolicy
+  url: https://www.macquarie.com.au/privacy-and-security.html
+- type: TermsOfService
+  url: https://www.macquarie.com.au/terms-and-conditions.html
 - type: APIReference
   url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api
 maintainers:
