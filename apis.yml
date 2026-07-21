@@ -267,6 +267,14 @@ common:
   url: https://www.macquarie.com.au/terms-and-conditions.html
 - type: APIReference
   url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api
+- type: VulnerabilityDisclosure
+  url: security/macquarie-bank-vulnerability-disclosure.yml
+- type: Security
+  url: https://www.macquarie.com/us/en/disclosures/cybersecurity.html
+- type: Compliance
+  url: https://www.macquarie.com/us/en/disclosures/cybersecurity.html
+- type: SignUp
+  url: https://developer.macquariebank.io/devportal/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
