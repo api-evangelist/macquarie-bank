@@ -2,12 +2,17 @@ generated: '2026-07-20'
 method: derived
 status: candidate
 source: openapi/macquarie-bank-cds-banking-products-openapi.yml
-note: |
-  No official Macquarie or CDR-wide hosted MCP server was found. This is a CANDIDATE
+note: 'No official Macquarie or CDR-wide hosted MCP server was found. This is a CANDIDATE
+
   tool surface derived one-tool-per-operation from the harvested CDS Banking API.
+
   The public Product Reference Data tools (list_banking_products, get_banking_product_detail)
+
   are unauthenticated (x-v header only); all account/transaction tools require CDR
+
   Accredited Data Recipient status, consumer consent, and MTLS-bound OAuth tokens.
+
+  '
 server:
   name: macquarie-bank
   transport: http
@@ -69,3 +74,9 @@ tools:
 - name: get_banking_payee_detail
   description: Get detail for a specific payee.
   source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#getBankingPayeeDetail
+deployment:
+  mode: none
+  verified: derived
+  tools: 19
+  checked: '2026-08-12'
+  source: catalog MCP census
