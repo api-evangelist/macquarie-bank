@@ -43,6 +43,12 @@ apis:
   name: Macquarie Connectivity & Data API
   tags:
   - Payments
+  - Account
+  - Business Banking
+  - Developer Portal
+  - Connectivity
+  tags_raw:
+  - Payments
   - Accounts
   - Business Banking
   - Developer Portal
