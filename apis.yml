@@ -12,6 +12,18 @@ description: Macquarie Bank Limited is an Australian authorised deposit-taking i
   Bank exposes a public, unauthenticated Product Reference Data (PRD) API conforming
   to the Consumer Data Standards (CDS), alongside accredited-data-recipient data sharing
   and a registered developer portal that documents its DEFT payments platform.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
