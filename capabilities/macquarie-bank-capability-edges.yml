@@ -1,0 +1,44 @@
+slug: macquarie-bank
+provider: Macquarie Bank
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Banking Account Balances
+  spec_file: macquarie-bank-banking-account-balances-api-openapi.yml
+  capability_id: BC-1330.10
+  capability_id_l1: BC-1330
+  capability_name: Deposit Account Management
+  confidence: 0.85
+  evidence: GET /banking/accounts/{accountId}/balance "Get Account Balance"; schema BankingBalance, BankingProductCategoryV2
+  reason: CDR open-banking endpoints exposing deposit/transaction account balances — deposit account information
+    servicing. Deposit Account Management is the closest fit; could alternatively sit under banking channels.
+- tag: Banking Products
+  spec_file: macquarie-bank-banking-products-api-openapi.yml
+  capability_id: BC-1310.10
+  capability_id_l1: BC-1310
+  capability_name: Product Catalogue Management
+  confidence: 0.85
+  evidence: GET /banking/products 'Get Products', GET /banking/products/{productId} 'Get Product Detail';
+    schemas BankingProductV6, BankingProductEligibilityV2, BankingFeeRate, BankingProductBundle
+  reason: Publishes the bank's product master with rates, fees, eligibility and bundles — a banking product
+    catalogue surface.
+- tag: Banking Account Direct Debits
+  spec_file: macquarie-bank-banking-account-direct-debits-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.75
+  evidence: GET /banking/accounts/{accountId}/direct-debits "Get Direct Debits For Account"; schemas BankingDirectDebit,
+    BankingAuthorisedEntity, ResponseBankingDirectDebitAuthorisationList
+  reason: Exposes direct debit authorisations on accounts — payment mandate/instruction information. Mapped
+    to Payment Initiation Management (mandate/authorisation capture); read-only nature adds some ambiguity.
