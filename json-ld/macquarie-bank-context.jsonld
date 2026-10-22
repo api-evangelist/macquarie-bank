@@ -1,0 +1,1224 @@
+{
+  "@context": {
+    "@vocab": "https://macquarie.com.au/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "macquarie": "https://macquarie.com.au/schema#",
+    "ErrorV2": "macquarie:ErrorV2",
+    "code": {
+      "@id": "macquarie:code",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "macquarie:title",
+      "@type": "xsd:string"
+    },
+    "detail": {
+      "@id": "macquarie:detail",
+      "@type": "xsd:string"
+    },
+    "meta": {
+      "@id": "macquarie:meta",
+      "@type": "@id"
+    },
+    "RequestAccountIdListV1": "macquarie:RequestAccountIdListV1",
+    "data": {
+      "@id": "macquarie:data",
+      "@type": "@id"
+    },
+    "BankingBalance": "macquarie:BankingBalance",
+    "accountId": {
+      "@id": "macquarie:accountId"
+    },
+    "currentBalance": {
+      "@id": "macquarie:currentBalance",
+      "@type": "xsd:string"
+    },
+    "availableBalance": {
+      "@id": "macquarie:availableBalance",
+      "@type": "xsd:string"
+    },
+    "creditLimit": {
+      "@id": "macquarie:creditLimit",
+      "@type": "xsd:string"
+    },
+    "amortisedLimit": {
+      "@id": "macquarie:amortisedLimit",
+      "@type": "xsd:string"
+    },
+    "currency": {
+      "@id": "macquarie:currency",
+      "@type": "xsd:string"
+    },
+    "purses": {
+      "@id": "macquarie:purses",
+      "@container": "@list"
+    },
+    "ResponseBankingAccountsBalanceById": "macquarie:ResponseBankingAccountsBalanceById",
+    "links": {
+      "@id": "macquarie:links",
+      "@type": "@id"
+    },
+    "MetaPaginated": "macquarie:MetaPaginated",
+    "totalRecords": {
+      "@id": "macquarie:totalRecords",
+      "@type": "xsd:integer"
+    },
+    "totalPages": {
+      "@id": "macquarie:totalPages",
+      "@type": "xsd:integer"
+    },
+    "BankingProductCategoryV2": "macquarie:BankingProductCategoryV2",
+    "ResponseErrorListV2": "macquarie:ResponseErrorListV2",
+    "errors": {
+      "@id": "macquarie:errors",
+      "@container": "@list"
+    },
+    "Links": "macquarie:Links",
+    "self": {
+      "@id": "macquarie:self",
+      "@type": "xsd:string"
+    },
+    "LinksPaginated": "macquarie:LinksPaginated",
+    "first": {
+      "@id": "macquarie:first",
+      "@type": "xsd:string"
+    },
+    "prev": {
+      "@id": "macquarie:prev",
+      "@type": "xsd:string"
+    },
+    "next": {
+      "@id": "macquarie:next",
+      "@type": "xsd:string"
+    },
+    "last": {
+      "@id": "macquarie:last",
+      "@type": "xsd:string"
+    },
+    "ResponseBankingAccountsBalanceList_data": "macquarie:ResponseBankingAccountsBalanceList_data",
+    "balances": {
+      "@id": "macquarie:balances",
+      "@container": "@list"
+    },
+    "ResponseBankingAccountsBalanceList": "macquarie:ResponseBankingAccountsBalanceList",
+    "BankingBalancePurse": "macquarie:BankingBalancePurse",
+    "amount": {
+      "@id": "macquarie:amount",
+      "@type": "xsd:string"
+    },
+    "RequestAccountIdListV1_data": "macquarie:RequestAccountIdListV1_data",
+    "accountIds": {
+      "@id": "macquarie:accountIds",
+      "@container": "@list"
+    },
+    "ErrorV2_meta": "macquarie:ErrorV2_meta",
+    "urn": {
+      "@id": "macquarie:urn",
+      "@type": "xsd:string"
+    },
+    "BankingDirectDebit": "macquarie:BankingDirectDebit",
+    "authorisedEntity": {
+      "@id": "macquarie:authorisedEntity",
+      "@type": "@id"
+    },
+    "lastDebitDateTime": {
+      "@id": "macquarie:lastDebitDateTime",
+      "@type": "xsd:string"
+    },
+    "lastDebitAmount": {
+      "@id": "macquarie:lastDebitAmount",
+      "@type": "xsd:string"
+    },
+    "ResponseBankingDirectDebitAuthorisationList_data": "macquarie:ResponseBankingDirectDebitAuthorisationList_data",
+    "directDebitAuthorisations": {
+      "@id": "macquarie:directDebitAuthorisations",
+      "@container": "@list"
+    },
+    "BankingAuthorisedEntity": "macquarie:BankingAuthorisedEntity",
+    "description": {
+      "@id": "macquarie:description",
+      "@type": "xsd:string"
+    },
+    "financialInstitution": {
+      "@id": "macquarie:financialInstitution",
+      "@type": "xsd:string"
+    },
+    "abn": {
+      "@id": "macquarie:abn",
+      "@type": "xsd:string"
+    },
+    "acn": {
+      "@id": "macquarie:acn",
+      "@type": "xsd:string"
+    },
+    "arbn": {
+      "@id": "macquarie:arbn",
+      "@type": "xsd:string"
+    },
+    "ResponseBankingDirectDebitAuthorisationList": "macquarie:ResponseBankingDirectDebitAuthorisationList",
+    "BankingScheduledPaymentV2": "macquarie:BankingScheduledPaymentV2",
+    "scheduledPaymentId": {
+      "@id": "macquarie:scheduledPaymentId"
+    },
+    "nickname": {
+      "@id": "macquarie:nickname",
+      "@type": "xsd:string"
+    },
+    "payerReference": {
+      "@id": "macquarie:payerReference",
+      "@type": "xsd:string"
+    },
+    "payeeReference": {
+      "@id": "macquarie:payeeReference",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "macquarie:status",
+      "@type": "xsd:string"
+    },
+    "from": {
+      "@id": "macquarie:from",
+      "@type": "@id"
+    },
+    "paymentSet": {
+      "@id": "macquarie:paymentSet",
+      "@container": "@list"
+    },
+    "recurrence": {
+      "@id": "macquarie:recurrence",
+      "@type": "@id"
+    },
+    "BankingScheduledPaymentRecurrenceEventBased": "macquarie:BankingScheduledPaymentRecurrenceEventBased",
+    "ResponseBankingScheduledPaymentsListV2_data": "macquarie:ResponseBankingScheduledPaymentsListV2_data",
+    "scheduledPayments": {
+      "@id": "macquarie:scheduledPayments",
+      "@container": "@list"
+    },
+    "BankingScheduledPaymentToV2": "macquarie:BankingScheduledPaymentToV2",
+    "toUType": {
+      "@id": "macquarie:toUType",
+      "@type": "xsd:string"
+    },
+    "payeeId": {
+      "@id": "macquarie:payeeId"
+    },
+    "digitalWallet": {
+      "@id": "macquarie:digitalWallet",
+      "@type": "@id"
+    },
+    "domestic": {
+      "@id": "macquarie:domestic",
+      "@type": "@id"
+    },
+    "biller": {
+      "@id": "macquarie:biller",
+      "@type": "@id"
+    },
+    "international": {
+      "@id": "macquarie:international",
+      "@type": "@id"
+    },
+    "ResponseBankingInstalmentPlanList": "macquarie:ResponseBankingInstalmentPlanList",
+    "BankingDigitalWalletPayee": "macquarie:BankingDigitalWalletPayee",
+    "name": {
+      "@id": "macquarie:name",
+      "@type": "xsd:string"
+    },
+    "identifier": {
+      "@id": "macquarie:identifier",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "macquarie:type",
+      "@type": "xsd:string"
+    },
+    "provider": {
+      "@id": "macquarie:provider",
+      "@type": "xsd:string"
+    },
+    "BankingScheduledPaymentFrom": "macquarie:BankingScheduledPaymentFrom",
+    "BankingInternationalPayee": "macquarie:BankingInternationalPayee",
+    "beneficiaryDetails": {
+      "@id": "macquarie:beneficiaryDetails",
+      "@type": "@id"
+    },
+    "bankDetails": {
+      "@id": "macquarie:bankDetails",
+      "@type": "@id"
+    },
+    "ResponseBankingScheduledPaymentsListV2": "macquarie:ResponseBankingScheduledPaymentsListV2",
+    "BankingInternationalPayee_beneficiaryDetails": "macquarie:BankingInternationalPayee_beneficiaryDetails",
+    "country": {
+      "@id": "macquarie:country",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "macquarie:message",
+      "@type": "xsd:string"
+    },
+    "BankingInstalmentPlanSchedule": "macquarie:BankingInstalmentPlanSchedule",
+    "amountDue": {
+      "@id": "macquarie:amountDue",
+      "@type": "xsd:string"
+    },
+    "dueDate": {
+      "@id": "macquarie:dueDate",
+      "@type": "xsd:string"
+    },
+    "isPaid": {
+      "@id": "macquarie:isPaid",
+      "@type": "xsd:boolean"
+    },
+    "BankingDomesticPayeeAccount": "macquarie:BankingDomesticPayeeAccount",
+    "accountName": {
+      "@id": "macquarie:accountName",
+      "@type": "xsd:string"
+    },
+    "bsb": {
+      "@id": "macquarie:bsb",
+      "@type": "xsd:string"
+    },
+    "accountNumber": {
+      "@id": "macquarie:accountNumber",
+      "@type": "xsd:string"
+    },
+    "BankingBillerPayee": "macquarie:BankingBillerPayee",
+    "billerCode": {
+      "@id": "macquarie:billerCode",
+      "@type": "xsd:string"
+    },
+    "crn": {
+      "@id": "macquarie:crn",
+      "@type": "xsd:string"
+    },
+    "billerName": {
+      "@id": "macquarie:billerName",
+      "@type": "xsd:string"
+    },
+    "BankingScheduledPaymentRecurrence": "macquarie:BankingScheduledPaymentRecurrence",
+    "nextPaymentDate": {
+      "@id": "macquarie:nextPaymentDate",
+      "@type": "xsd:string"
+    },
+    "recurrenceUType": {
+      "@id": "macquarie:recurrenceUType",
+      "@type": "xsd:string"
+    },
+    "onceOff": {
+      "@id": "macquarie:onceOff",
+      "@type": "@id"
+    },
+    "intervalSchedule": {
+      "@id": "macquarie:intervalSchedule",
+      "@type": "@id"
+    },
+    "lastWeekDay": {
+      "@id": "macquarie:lastWeekDay",
+      "@type": "@id"
+    },
+    "eventBased": {
+      "@id": "macquarie:eventBased",
+      "@type": "@id"
+    },
+    "BankingScheduledPaymentInterval": "macquarie:BankingScheduledPaymentInterval",
+    "interval": {
+      "@id": "macquarie:interval",
+      "@type": "xsd:string"
+    },
+    "dayInInterval": {
+      "@id": "macquarie:dayInInterval",
+      "@type": "xsd:string"
+    },
+    "BankingInternationalPayee_bankDetails_bankAddress": "macquarie:BankingInternationalPayee_bankDetails_bankAddress",
+    "address": {
+      "@id": "macquarie:address",
+      "@type": "xsd:string"
+    },
+    "BankingScheduledPaymentRecurrenceLastWeekday": "macquarie:BankingScheduledPaymentRecurrenceLastWeekday",
+    "finalPaymentDate": {
+      "@id": "macquarie:finalPaymentDate",
+      "@type": "xsd:string"
+    },
+    "paymentsRemaining": {
+      "@id": "macquarie:paymentsRemaining",
+      "@type": "xsd:integer"
+    },
+    "nonBusinessDayTreatment": {
+      "@id": "macquarie:nonBusinessDayTreatment",
+      "@type": "xsd:string"
+    },
+    "BankingScheduledPaymentRecurrenceIntervalSchedule": "macquarie:BankingScheduledPaymentRecurrenceIntervalSchedule",
+    "intervals": {
+      "@id": "macquarie:intervals",
+      "@container": "@list"
+    },
+    "BankingInstalmentPlan": "macquarie:BankingInstalmentPlan",
+    "planId": {
+      "@id": "macquarie:planId"
+    },
+    "planReference": {
+      "@id": "macquarie:planReference",
+      "@type": "xsd:string"
+    },
+    "merchantName": {
+      "@id": "macquarie:merchantName",
+      "@type": "xsd:string"
+    },
+    "merchantCategoryCode": {
+      "@id": "macquarie:merchantCategoryCode",
+      "@type": "xsd:string"
+    },
+    "planNickname": {
+      "@id": "macquarie:planNickname",
+      "@type": "xsd:string"
+    },
+    "creationDate": {
+      "@id": "macquarie:creationDate",
+      "@type": "xsd:string"
+    },
+    "planCurrency": {
+      "@id": "macquarie:planCurrency",
+      "@type": "xsd:string"
+    },
+    "planCharge": {
+      "@id": "macquarie:planCharge",
+      "@type": "xsd:string"
+    },
+    "planRate": {
+      "@id": "macquarie:planRate",
+      "@type": "xsd:string"
+    },
+    "duration": {
+      "@id": "macquarie:duration",
+      "@type": "xsd:string"
+    },
+    "instalmentInterval": {
+      "@id": "macquarie:instalmentInterval",
+      "@type": "xsd:string"
+    },
+    "schedule": {
+      "@id": "macquarie:schedule",
+      "@container": "@list"
+    },
+    "BankingInternationalPayee_bankDetails": "macquarie:BankingInternationalPayee_bankDetails",
+    "bankAddress": {
+      "@id": "macquarie:bankAddress",
+      "@type": "@id"
+    },
+    "beneficiaryBankBIC": {
+      "@id": "macquarie:beneficiaryBankBIC",
+      "@type": "xsd:string"
+    },
+    "fedWireNumber": {
+      "@id": "macquarie:fedWireNumber",
+      "@type": "xsd:string"
+    },
+    "sortCode": {
+      "@id": "macquarie:sortCode",
+      "@type": "xsd:string"
+    },
+    "chipNumber": {
+      "@id": "macquarie:chipNumber",
+      "@type": "xsd:string"
+    },
+    "routingNumber": {
+      "@id": "macquarie:routingNumber",
+      "@type": "xsd:string"
+    },
+    "legalEntityIdentifier": {
+      "@id": "macquarie:legalEntityIdentifier",
+      "@type": "xsd:string"
+    },
+    "BankingScheduledPaymentSetV2": "macquarie:BankingScheduledPaymentSetV2",
+    "to": {
+      "@id": "macquarie:to",
+      "@type": "@id"
+    },
+    "isAmountCalculated": {
+      "@id": "macquarie:isAmountCalculated",
+      "@type": "xsd:boolean"
+    },
+    "BankingDomesticPayee": "macquarie:BankingDomesticPayee",
+    "payeeAccountUType": {
+      "@id": "macquarie:payeeAccountUType",
+      "@type": "xsd:string"
+    },
+    "account": {
+      "@id": "macquarie:account",
+      "@type": "@id"
+    },
+    "card": {
+      "@id": "macquarie:card",
+      "@type": "@id"
+    },
+    "payId": {
+      "@id": "macquarie:payId",
+      "@type": "@id"
+    },
+    "ResponseBankingInstalmentPlanList_data": "macquarie:ResponseBankingInstalmentPlanList_data",
+    "plans": {
+      "@id": "macquarie:plans",
+      "@container": "@list"
+    },
+    "BankingDomesticPayeeCard": "macquarie:BankingDomesticPayeeCard",
+    "cardNumber": {
+      "@id": "macquarie:cardNumber",
+      "@type": "xsd:string"
+    },
+    "BankingDomesticPayeePayId": "macquarie:BankingDomesticPayeePayId",
+    "BankingScheduledPaymentRecurrenceOnceOff": "macquarie:BankingScheduledPaymentRecurrenceOnceOff",
+    "paymentDate": {
+      "@id": "macquarie:paymentDate",
+      "@type": "xsd:string"
+    },
+    "BankingTransactionDetailV3_allOf_extendedData": "macquarie:BankingTransactionDetailV3_allOf_extendedData",
+    "payer": {
+      "@id": "macquarie:payer",
+      "@type": "xsd:string"
+    },
+    "payee": {
+      "@id": "macquarie:payee",
+      "@type": "xsd:string"
+    },
+    "extensionUType": {
+      "@id": "macquarie:extensionUType",
+      "@type": "xsd:string"
+    },
+    "nppPayload": {
+      "@id": "macquarie:nppPayload",
+      "@type": "@id"
+    },
+    "MetaPaginatedTransaction_allOf": "macquarie:MetaPaginatedTransaction_allOf",
+    "isQueryParamUnsupported": {
+      "@id": "macquarie:isQueryParamUnsupported",
+      "@type": "xsd:boolean"
+    },
+    "ResponseBankingTransactionByIdV3": "macquarie:ResponseBankingTransactionByIdV3",
+    "BankingTransactionV2": "macquarie:BankingTransactionV2",
+    "transactionId": {
+      "@id": "macquarie:transactionId"
+    },
+    "isDetailAvailable": {
+      "@id": "macquarie:isDetailAvailable",
+      "@type": "xsd:boolean"
+    },
+    "postingDateTime": {
+      "@id": "macquarie:postingDateTime",
+      "@type": "xsd:string"
+    },
+    "valueDateTime": {
+      "@id": "macquarie:valueDateTime",
+      "@type": "xsd:string"
+    },
+    "executionDateTime": {
+      "@id": "macquarie:executionDateTime",
+      "@type": "xsd:string"
+    },
+    "reference": {
+      "@id": "macquarie:reference",
+      "@type": "xsd:string"
+    },
+    "instalmentPlanId": {
+      "@id": "macquarie:instalmentPlanId"
+    },
+    "apcaNumber": {
+      "@id": "macquarie:apcaNumber",
+      "@type": "xsd:string"
+    },
+    "ResponseBankingTransactionListV2": "macquarie:ResponseBankingTransactionListV2",
+    "BankingTransactionDetailV3_allOf": "macquarie:BankingTransactionDetailV3_allOf",
+    "extendedData": {
+      "@id": "macquarie:extendedData",
+      "@type": "@id"
+    },
+    "NppPaymentService": "macquarie:NppPaymentService",
+    "BankingTransactionDetailV3_allOf_extendedData_nppPayload": "macquarie:BankingTransactionDetailV3_allOf_extendedData_nppPayload",
+    "extendedDescription": {
+      "@id": "macquarie:extendedDescription",
+      "@type": "xsd:string"
+    },
+    "endToEndId": {
+      "@id": "macquarie:endToEndId",
+      "@type": "xsd:string"
+    },
+    "purposeCode": {
+      "@id": "macquarie:purposeCode",
+      "@type": "xsd:string"
+    },
+    "service": {
+      "@id": "macquarie:service",
+      "@type": "@id"
+    },
+    "serviceVersion": {
+      "@id": "macquarie:serviceVersion",
+      "@type": "xsd:string"
+    },
+    "ResponseBankingTransactionListV2_data": "macquarie:ResponseBankingTransactionListV2_data",
+    "transactions": {
+      "@id": "macquarie:transactions",
+      "@container": "@list"
+    },
+    "BankingProductDiscountEligibility": "macquarie:BankingProductDiscountEligibility",
+    "discountEligibilityType": {
+      "@id": "macquarie:discountEligibilityType",
+      "@type": "xsd:string"
+    },
+    "additionalValue": {
+      "@id": "macquarie:additionalValue",
+      "@type": "xsd:string"
+    },
+    "additionalInfo": {
+      "@id": "macquarie:additionalInfo",
+      "@type": "xsd:string"
+    },
+    "additionalInfoUri": {
+      "@id": "macquarie:additionalInfoUri",
+      "@type": "xsd:string"
+    },
+    "BankingFeeRate": "macquarie:BankingFeeRate",
+    "rateType": {
+      "@id": "macquarie:rateType",
+      "@type": "xsd:string"
+    },
+    "rate": {
+      "@id": "macquarie:rate",
+      "@type": "xsd:string"
+    },
+    "accrualFrequency": {
+      "@id": "macquarie:accrualFrequency",
+      "@type": "xsd:string"
+    },
+    "amountRange": {
+      "@id": "macquarie:amountRange",
+      "@type": "@id"
+    },
+    "BankingProductDiscountV2": "macquarie:BankingProductDiscountV2",
+    "discountType": {
+      "@id": "macquarie:discountType",
+      "@type": "xsd:string"
+    },
+    "discountMethodUType": {
+      "@id": "macquarie:discountMethodUType",
+      "@type": "xsd:string"
+    },
+    "fixedAmount": {
+      "@id": "macquarie:fixedAmount"
+    },
+    "rateBased": {
+      "@id": "macquarie:rateBased"
+    },
+    "eligibility": {
+      "@id": "macquarie:eligibility",
+      "@container": "@list"
+    },
+    "BankingFeeDiscountAmount": "macquarie:BankingFeeDiscountAmount",
+    "BankingLoanAccountV3": "macquarie:BankingLoanAccountV3",
+    "originalStartDate": {
+      "@id": "macquarie:originalStartDate",
+      "@type": "xsd:string"
+    },
+    "originalLoanAmount": {
+      "@id": "macquarie:originalLoanAmount",
+      "@type": "xsd:string"
+    },
+    "originalLoanCurrency": {
+      "@id": "macquarie:originalLoanCurrency",
+      "@type": "xsd:string"
+    },
+    "loanEndDate": {
+      "@id": "macquarie:loanEndDate",
+      "@type": "xsd:string"
+    },
+    "nextInstalmentDate": {
+      "@id": "macquarie:nextInstalmentDate",
+      "@type": "xsd:string"
+    },
+    "minInstalmentAmount": {
+      "@id": "macquarie:minInstalmentAmount",
+      "@type": "xsd:string"
+    },
+    "minInstalmentCurrency": {
+      "@id": "macquarie:minInstalmentCurrency",
+      "@type": "xsd:string"
+    },
+    "maxRedraw": {
+      "@id": "macquarie:maxRedraw",
+      "@type": "xsd:string"
+    },
+    "maxRedrawCurrency": {
+      "@id": "macquarie:maxRedrawCurrency",
+      "@type": "xsd:string"
+    },
+    "minRedraw": {
+      "@id": "macquarie:minRedraw",
+      "@type": "xsd:string"
+    },
+    "minRedrawCurrency": {
+      "@id": "macquarie:minRedrawCurrency",
+      "@type": "xsd:string"
+    },
+    "offsetAccountEnabled": {
+      "@id": "macquarie:offsetAccountEnabled",
+      "@type": "xsd:boolean"
+    },
+    "offsetAccountIds": {
+      "@id": "macquarie:offsetAccountIds",
+      "@container": "@list"
+    },
+    "repaymentType": {
+      "@id": "macquarie:repaymentType",
+      "@type": "xsd:string"
+    },
+    "repaymentFrequency": {
+      "@id": "macquarie:repaymentFrequency",
+      "@type": "xsd:string"
+    },
+    "BankingCreditCardAccount": "macquarie:BankingCreditCardAccount",
+    "minPaymentAmount": {
+      "@id": "macquarie:minPaymentAmount",
+      "@type": "xsd:string"
+    },
+    "paymentDueAmount": {
+      "@id": "macquarie:paymentDueAmount",
+      "@type": "xsd:string"
+    },
+    "paymentCurrency": {
+      "@id": "macquarie:paymentCurrency",
+      "@type": "xsd:string"
+    },
+    "paymentDueDate": {
+      "@id": "macquarie:paymentDueDate",
+      "@type": "xsd:string"
+    },
+    "ResponseBankingAccountByIdV5": "macquarie:ResponseBankingAccountByIdV5",
+    "BankingProductDepositRateV2": "macquarie:BankingProductDepositRateV2",
+    "depositRateType": {
+      "@id": "macquarie:depositRateType",
+      "@type": "xsd:string"
+    },
+    "calculationFrequency": {
+      "@id": "macquarie:calculationFrequency",
+      "@type": "xsd:string"
+    },
+    "applicationType": {
+      "@id": "macquarie:applicationType",
+      "@type": "xsd:string"
+    },
+    "applicationFrequency": {
+      "@id": "macquarie:applicationFrequency",
+      "@type": "xsd:string"
+    },
+    "tiers": {
+      "@id": "macquarie:tiers",
+      "@container": "@list"
+    },
+    "applicabilityConditions": {
+      "@id": "macquarie:applicabilityConditions",
+      "@container": "@list"
+    },
+    "BankingTermDepositAccount": "macquarie:BankingTermDepositAccount",
+    "lodgementDate": {
+      "@id": "macquarie:lodgementDate",
+      "@type": "xsd:string"
+    },
+    "maturityDate": {
+      "@id": "macquarie:maturityDate",
+      "@type": "xsd:string"
+    },
+    "maturityAmount": {
+      "@id": "macquarie:maturityAmount",
+      "@type": "xsd:string"
+    },
+    "maturityCurrency": {
+      "@id": "macquarie:maturityCurrency",
+      "@type": "xsd:string"
+    },
+    "maturityInstructions": {
+      "@id": "macquarie:maturityInstructions",
+      "@type": "xsd:string"
+    },
+    "BankingFeeAmount": "macquarie:BankingFeeAmount",
+    "BankingProductFeeV2": "macquarie:BankingProductFeeV2",
+    "feeType": {
+      "@id": "macquarie:feeType",
+      "@type": "xsd:string"
+    },
+    "feeMethodUType": {
+      "@id": "macquarie:feeMethodUType",
+      "@type": "xsd:string"
+    },
+    "variable": {
+      "@id": "macquarie:variable"
+    },
+    "feeCap": {
+      "@id": "macquarie:feeCap",
+      "@type": "xsd:string"
+    },
+    "feeCapPeriod": {
+      "@id": "macquarie:feeCapPeriod",
+      "@type": "xsd:string"
+    },
+    "discounts": {
+      "@id": "macquarie:discounts",
+      "@container": "@list"
+    },
+    "BankingFeeDiscountRate": "macquarie:BankingFeeDiscountRate",
+    "CommonSimpleAddress": "macquarie:CommonSimpleAddress",
+    "mailingName": {
+      "@id": "macquarie:mailingName",
+      "@type": "xsd:string"
+    },
+    "addressLine1": {
+      "@id": "macquarie:addressLine1",
+      "@type": "xsd:string"
+    },
+    "addressLine2": {
+      "@id": "macquarie:addressLine2",
+      "@type": "xsd:string"
+    },
+    "addressLine3": {
+      "@id": "macquarie:addressLine3",
+      "@type": "xsd:string"
+    },
+    "postcode": {
+      "@id": "macquarie:postcode",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "macquarie:city",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "macquarie:state",
+      "@type": "xsd:string"
+    },
+    "BankingAccountDetailV5_allOf": "macquarie:BankingAccountDetailV5_allOf",
+    "bundleName": {
+      "@id": "macquarie:bundleName",
+      "@type": "xsd:string"
+    },
+    "instalments": {
+      "@id": "macquarie:instalments",
+      "@type": "@id"
+    },
+    "specificAccountUType": {
+      "@id": "macquarie:specificAccountUType",
+      "@type": "xsd:string"
+    },
+    "termDeposit": {
+      "@id": "macquarie:termDeposit",
+      "@container": "@list"
+    },
+    "creditCard": {
+      "@id": "macquarie:creditCard"
+    },
+    "loan": {
+      "@id": "macquarie:loan"
+    },
+    "depositRate": {
+      "@id": "macquarie:depositRate",
+      "@type": "xsd:string"
+    },
+    "lendingRate": {
+      "@id": "macquarie:lendingRate",
+      "@type": "xsd:string"
+    },
+    "depositRates": {
+      "@id": "macquarie:depositRates",
+      "@container": "@list"
+    },
+    "lendingRates": {
+      "@id": "macquarie:lendingRates",
+      "@container": "@list"
+    },
+    "features": {
+      "@id": "macquarie:features",
+      "@container": "@list"
+    },
+    "fees": {
+      "@id": "macquarie:fees",
+      "@container": "@list"
+    },
+    "addresses": {
+      "@id": "macquarie:addresses",
+      "@container": "@list"
+    },
+    "BankingProductLendingRateV3": "macquarie:BankingProductLendingRateV3",
+    "lendingRateType": {
+      "@id": "macquarie:lendingRateType",
+      "@type": "xsd:string"
+    },
+    "comparisonRate": {
+      "@id": "macquarie:comparisonRate",
+      "@type": "xsd:string"
+    },
+    "interestPaymentDue": {
+      "@id": "macquarie:interestPaymentDue",
+      "@type": "xsd:string"
+    },
+    "loanPurpose": {
+      "@id": "macquarie:loanPurpose",
+      "@type": "xsd:string"
+    },
+    "ResponseBankingAccountListV3_data": "macquarie:ResponseBankingAccountListV3_data",
+    "accounts": {
+      "@id": "macquarie:accounts",
+      "@container": "@list"
+    },
+    "CommonPAFAddress": "macquarie:CommonPAFAddress",
+    "dpid": {
+      "@id": "macquarie:dpid",
+      "@type": "xsd:string"
+    },
+    "thoroughfareNumber1": {
+      "@id": "macquarie:thoroughfareNumber1",
+      "@type": "xsd:integer"
+    },
+    "thoroughfareNumber1Suffix": {
+      "@id": "macquarie:thoroughfareNumber1Suffix",
+      "@type": "xsd:string"
+    },
+    "thoroughfareNumber2": {
+      "@id": "macquarie:thoroughfareNumber2",
+      "@type": "xsd:integer"
+    },
+    "thoroughfareNumber2Suffix": {
+      "@id": "macquarie:thoroughfareNumber2Suffix",
+      "@type": "xsd:string"
+    },
+    "flatUnitType": {
+      "@id": "macquarie:flatUnitType",
+      "@type": "xsd:string"
+    },
+    "flatUnitNumber": {
+      "@id": "macquarie:flatUnitNumber",
+      "@type": "xsd:string"
+    },
+    "floorLevelType": {
+      "@id": "macquarie:floorLevelType",
+      "@type": "xsd:string"
+    },
+    "floorLevelNumber": {
+      "@id": "macquarie:floorLevelNumber",
+      "@type": "xsd:string"
+    },
+    "lotNumber": {
+      "@id": "macquarie:lotNumber",
+      "@type": "xsd:string"
+    },
+    "buildingName1": {
+      "@id": "macquarie:buildingName1",
+      "@type": "xsd:string"
+    },
+    "buildingName2": {
+      "@id": "macquarie:buildingName2",
+      "@type": "xsd:string"
+    },
+    "streetName": {
+      "@id": "macquarie:streetName",
+      "@type": "xsd:string"
+    },
+    "streetType": {
+      "@id": "macquarie:streetType",
+      "@type": "xsd:string"
+    },
+    "streetSuffix": {
+      "@id": "macquarie:streetSuffix",
+      "@type": "xsd:string"
+    },
+    "postalDeliveryType": {
+      "@id": "macquarie:postalDeliveryType",
+      "@type": "xsd:string"
+    },
+    "postalDeliveryNumber": {
+      "@id": "macquarie:postalDeliveryNumber",
+      "@type": "xsd:integer"
+    },
+    "postalDeliveryNumberPrefix": {
+      "@id": "macquarie:postalDeliveryNumberPrefix",
+      "@type": "xsd:string"
+    },
+    "postalDeliveryNumberSuffix": {
+      "@id": "macquarie:postalDeliveryNumberSuffix",
+      "@type": "xsd:string"
+    },
+    "localityName": {
+      "@id": "macquarie:localityName",
+      "@type": "xsd:string"
+    },
+    "BankingProductRateConditionV2": "macquarie:BankingProductRateConditionV2",
+    "rateApplicabilityType": {
+      "@id": "macquarie:rateApplicabilityType",
+      "@type": "xsd:string"
+    },
+    "BankingProductInstalments": "macquarie:BankingProductInstalments",
+    "maximumConcurrentPlans": {
+      "@id": "macquarie:maximumConcurrentPlans",
+      "@type": "xsd:integer"
+    },
+    "instalmentsLimit": {
+      "@id": "macquarie:instalmentsLimit",
+      "@type": "xsd:string"
+    },
+    "minimumPlanValue": {
+      "@id": "macquarie:minimumPlanValue",
+      "@type": "xsd:string"
+    },
+    "maximumPlanValue": {
+      "@id": "macquarie:maximumPlanValue",
+      "@type": "xsd:string"
+    },
+    "minimumSplit": {
+      "@id": "macquarie:minimumSplit",
+      "@type": "xsd:integer"
+    },
+    "maximumSplit": {
+      "@id": "macquarie:maximumSplit",
+      "@type": "xsd:integer"
+    },
+    "BankingFeeRange": "macquarie:BankingFeeRange",
+    "feeMinimum": {
+      "@id": "macquarie:feeMinimum",
+      "@type": "xsd:string"
+    },
+    "feeMaximum": {
+      "@id": "macquarie:feeMaximum",
+      "@type": "xsd:string"
+    },
+    "BankingProductFeatureV4": "macquarie:BankingProductFeatureV4",
+    "featureType": {
+      "@id": "macquarie:featureType",
+      "@type": "xsd:string"
+    },
+    "BankingAccountV3": "macquarie:BankingAccountV3",
+    "displayName": {
+      "@id": "macquarie:displayName",
+      "@type": "xsd:string"
+    },
+    "openStatus": {
+      "@id": "macquarie:openStatus",
+      "@type": "xsd:string"
+    },
+    "isOwned": {
+      "@id": "macquarie:isOwned",
+      "@type": "xsd:boolean"
+    },
+    "accountOwnership": {
+      "@id": "macquarie:accountOwnership",
+      "@type": "xsd:string"
+    },
+    "maskedNumber": {
+      "@id": "macquarie:maskedNumber",
+      "@type": "xsd:string"
+    },
+    "productCategory": {
+      "@id": "macquarie:productCategory",
+      "@type": "@id"
+    },
+    "productName": {
+      "@id": "macquarie:productName",
+      "@type": "xsd:string"
+    },
+    "isInstalmentDetailAvailable": {
+      "@id": "macquarie:isInstalmentDetailAvailable",
+      "@type": "xsd:boolean"
+    },
+    "BankingProductRateTierV4": "macquarie:BankingProductRateTierV4",
+    "unitOfMeasure": {
+      "@id": "macquarie:unitOfMeasure",
+      "@type": "xsd:string"
+    },
+    "minimumValue": {
+      "@id": "macquarie:minimumValue",
+      "@type": "xsd:string"
+    },
+    "maximumValue": {
+      "@id": "macquarie:maximumValue",
+      "@type": "xsd:string"
+    },
+    "rateApplicationMethod": {
+      "@id": "macquarie:rateApplicationMethod",
+      "@type": "xsd:string"
+    },
+    "CommonPhysicalAddress": "macquarie:CommonPhysicalAddress",
+    "addressUType": {
+      "@id": "macquarie:addressUType",
+      "@type": "xsd:string"
+    },
+    "simple": {
+      "@id": "macquarie:simple",
+      "@type": "@id"
+    },
+    "paf": {
+      "@id": "macquarie:paf",
+      "@type": "@id"
+    },
+    "BankingFeeDiscountRange": "macquarie:BankingFeeDiscountRange",
+    "discountMinimum": {
+      "@id": "macquarie:discountMinimum",
+      "@type": "xsd:string"
+    },
+    "discountMaximum": {
+      "@id": "macquarie:discountMaximum",
+      "@type": "xsd:string"
+    },
+    "ResponseBankingAccountListV3": "macquarie:ResponseBankingAccountListV3",
+    "ResponseBankingPayeeByIdV2": "macquarie:ResponseBankingPayeeByIdV2",
+    "BankingPayeeDetailV2_allOf": "macquarie:BankingPayeeDetailV2_allOf",
+    "payeeUType": {
+      "@id": "macquarie:payeeUType",
+      "@type": "xsd:string"
+    },
+    "ResponseBankingPayeeListV2": "macquarie:ResponseBankingPayeeListV2",
+    "ResponseBankingPayeeListV2_data": "macquarie:ResponseBankingPayeeListV2_data",
+    "payees": {
+      "@id": "macquarie:payees",
+      "@container": "@list"
+    },
+    "BankingPayeeV2": "macquarie:BankingPayeeV2",
+    "ResponseBankingProductListV4": "macquarie:ResponseBankingProductListV4",
+    "BankingProductAdditionalInformationV2_additionalInformationUris": "macquarie:BankingProductAdditionalInformationV2_additionalInformationUris",
+    "BankingProductCardArt": "macquarie:BankingProductCardArt",
+    "cardScheme": {
+      "@id": "macquarie:cardScheme",
+      "@type": "xsd:string"
+    },
+    "cardType": {
+      "@id": "macquarie:cardType",
+      "@type": "xsd:string"
+    },
+    "imageUri": {
+      "@id": "macquarie:imageUri",
+      "@type": "xsd:string"
+    },
+    "BankingProductConstraintV3": "macquarie:BankingProductConstraintV3",
+    "constraintType": {
+      "@id": "macquarie:constraintType",
+      "@type": "xsd:string"
+    },
+    "BankingProductV6": "macquarie:BankingProductV6",
+    "productId": {
+      "@id": "macquarie:productId",
+      "@type": "xsd:string"
+    },
+    "effectiveFrom": {
+      "@id": "macquarie:effectiveFrom",
+      "@type": "xsd:string"
+    },
+    "effectiveTo": {
+      "@id": "macquarie:effectiveTo",
+      "@type": "xsd:string"
+    },
+    "lastUpdated": {
+      "@id": "macquarie:lastUpdated",
+      "@type": "xsd:string"
+    },
+    "brand": {
+      "@id": "macquarie:brand",
+      "@type": "xsd:string"
+    },
+    "brandName": {
+      "@id": "macquarie:brandName",
+      "@type": "xsd:string"
+    },
+    "brandGroup": {
+      "@id": "macquarie:brandGroup",
+      "@type": "xsd:string"
+    },
+    "applicationUri": {
+      "@id": "macquarie:applicationUri",
+      "@type": "xsd:string"
+    },
+    "isTailored": {
+      "@id": "macquarie:isTailored",
+      "@type": "xsd:boolean"
+    },
+    "additionalInformation": {
+      "@id": "macquarie:additionalInformation",
+      "@type": "@id"
+    },
+    "cardArt": {
+      "@id": "macquarie:cardArt",
+      "@container": "@list"
+    },
+    "BankingProductAdditionalInformationV2": "macquarie:BankingProductAdditionalInformationV2",
+    "overviewUri": {
+      "@id": "macquarie:overviewUri",
+      "@type": "xsd:string"
+    },
+    "termsUri": {
+      "@id": "macquarie:termsUri",
+      "@type": "xsd:string"
+    },
+    "eligibilityUri": {
+      "@id": "macquarie:eligibilityUri",
+      "@type": "xsd:string"
+    },
+    "feesAndPricingUri": {
+      "@id": "macquarie:feesAndPricingUri",
+      "@type": "xsd:string"
+    },
+    "bundleUri": {
+      "@id": "macquarie:bundleUri",
+      "@type": "xsd:string"
+    },
+    "additionalOverviewUris": {
+      "@id": "macquarie:additionalOverviewUris",
+      "@container": "@list"
+    },
+    "additionalTermsUris": {
+      "@id": "macquarie:additionalTermsUris",
+      "@container": "@list"
+    },
+    "additionalEligibilityUris": {
+      "@id": "macquarie:additionalEligibilityUris",
+      "@container": "@list"
+    },
+    "additionalFeesAndPricingUris": {
+      "@id": "macquarie:additionalFeesAndPricingUris",
+      "@container": "@list"
+    },
+    "additionalBundleUris": {
+      "@id": "macquarie:additionalBundleUris",
+      "@container": "@list"
+    },
+    "ResponseBankingProductListV4_data": "macquarie:ResponseBankingProductListV4_data",
+    "products": {
+      "@id": "macquarie:products",
+      "@container": "@list"
+    },
+    "BankingProductDetailV7_allOf": "macquarie:BankingProductDetailV7_allOf",
+    "bundles": {
+      "@id": "macquarie:bundles",
+      "@container": "@list"
+    },
+    "constraints": {
+      "@id": "macquarie:constraints",
+      "@container": "@list"
+    },
+    "ResponseBankingProductByIdV7": "macquarie:ResponseBankingProductByIdV7",
+    "BankingProductEligibilityV2": "macquarie:BankingProductEligibilityV2",
+    "eligibilityType": {
+      "@id": "macquarie:eligibilityType",
+      "@type": "xsd:string"
+    },
+    "BankingProductBundle": "macquarie:BankingProductBundle",
+    "productIds": {
+      "@id": "macquarie:productIds",
+      "@container": "@list"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Macquarie Bank API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Macquarie Bank's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-20) from openapi/macquarie-bank-banking-account-balances-api-openapi.yml, openapi/macquarie-bank-banking-account-direct-debits-api-openapi.yml, openapi/macquarie-bank-banking-account-scheduled-payments-api-openapi.yml.",
+  "dcterms:created": "2026-10-20",
+  "dcterms:source": [
+    "openapi/macquarie-bank-banking-account-balances-api-openapi.yml",
+    "openapi/macquarie-bank-banking-account-direct-debits-api-openapi.yml",
+    "openapi/macquarie-bank-banking-account-scheduled-payments-api-openapi.yml",
+    "openapi/macquarie-bank-banking-account-transactions-api-openapi.yml",
+    "openapi/macquarie-bank-banking-accounts-api-openapi.yml"
+  ]
+}

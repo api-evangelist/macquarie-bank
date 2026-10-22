@@ -1,0 +1,25 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for CDR Banking Banking Account Transactions API
+  version: 1.0.0
+extends: openapi/macquarie-bank-banking-account-transactions-api-openapi.yml
+generated: '2026-10-20'
+method: generated
+source: openapi/macquarie-bank-banking-account-transactions-api-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: macquarie-bank
+    x-apievangelist-standard: Consumer Data Standards (AU) CDR Banking API
+    x-apievangelist-access: CDR Accredited Data Recipient + consumer consent; FAPI 1.0 Advanced, MTLS-bound
+      tokens
+- target: $.paths['/banking/accounts/{accountId}/transactions'].get
+  update:
+    x-apievangelist-mcp-tool: list_banking_transactions
+    x-apievangelist-agent-access: consent-gated
+    x-apievangelist-pagination: page / page-size; follow links.next
+- target: $.paths['/banking/accounts/{accountId}/transactions/{transactionId}'].get
+  update:
+    x-apievangelist-mcp-tool: get_banking_transaction_detail
+    x-apievangelist-agent-access: consent-gated
+    x-apievangelist-pagination: none

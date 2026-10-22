@@ -6,6 +6,12 @@ source: |
   registration-gated (returns 403 to unauthenticated clients), so published test
   values are not extractable without registration; the sandbox environment itself
   is confirmed to exist.
+description: Macquarie Connect - Sandbox is a registration-gated developer sandbox
+  for the DEFT payments platform (tokenised card, bank account, direct debit) on
+  developer.macquariebank.io; public CDR Product Reference Data is callable live
+  without a sandbox. No published test values were captured.
+docs:
+- https://developer.macquariebank.io/devportal/
 environments:
 - name: production-public-prd
   base_url: https://api.macquariebank.io/cds-au/v1/banking

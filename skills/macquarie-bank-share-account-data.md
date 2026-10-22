@@ -1,7 +1,10 @@
 ---
-name: Share Macquarie Bank account data (CDR)
+name: macquarie-bank-share-account-data
 description: Read a consenting consumer's Macquarie Bank accounts, balances and transactions via the consent-based CDR Banking Data Sharing API.
-api: openapi/macquarie-bank-cds-banking-products-openapi.yml
+api:
+- openapi/macquarie-bank-banking-accounts-api-openapi.yml
+- openapi/macquarie-bank-banking-account-balances-api-openapi.yml
+- openapi/macquarie-bank-banking-account-transactions-api-openapi.yml
 operations: [listBankingAccounts, getBankingBalance, listBankingTransactions, getBankingTransactionDetail]
 ---
 

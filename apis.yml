@@ -1,17 +1,18 @@
 aid: macquarie-bank
+
 url: https://raw.githubusercontent.com/api-evangelist/macquarie-bank/refs/heads/main/apis.yml
+
 name: Macquarie Bank
+
 kind: company
-description: Macquarie Bank Limited is an Australian authorised deposit-taking institution
-  (ADI) and the retail and business banking arm of Macquarie Group Limited, the ASX-listed
-  (ASX:MQG) global financial services group headquartered in Sydney. It is not a mutual
-  or customer-owned bank; it is a wholly-owned, shareholder-owned subsidiary of a publicly
-  listed parent. Its digital bank offers transaction and savings accounts, home loans,
-  credit and charge cards, term deposits, overdrafts and business lending. As a designated
-  data holder under Australia's Consumer Data Right (CDR / Open Banking), Macquarie
-  Bank exposes a public, unauthenticated Product Reference Data (PRD) API conforming
-  to the Consumer Data Standards (CDS), alongside accredited-data-recipient data sharing
-  and a registered developer portal that documents its DEFT payments platform.
+
+description: Macquarie Bank Limited is an Australian authorised deposit-taking institution (ADI) and the retail and business banking arm of Macquarie
+  Group Limited, the ASX-listed (ASX:MQG) global financial services group headquartered in Sydney. It is not a mutual or customer-owned bank;
+  it is a wholly-owned, shareholder-owned subsidiary of a publicly listed parent. Its digital bank offers transaction and savings accounts, home
+  loans, credit and charge cards, term deposits, overdrafts and business lending. As a designated data holder under Australia's Consumer Data
+  Right (CDR / Open Banking), Macquarie Bank exposes a public, unauthenticated Product Reference Data (PRD) API conforming to the Consumer Data
+  Standards (CDS), alongside accredited-data-recipient data sharing and a registered developer portal that documents its DEFT payments platform.
+
 deliveryModel:
   model: saas
   open_source: false
@@ -24,6 +25,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: unknown
   onboarding: self-serve
@@ -36,7 +38,9 @@ accessModel:
   - authentication
   generated: '2026-07-22'
   method: derived
+
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/macquarie-bank.png
+
 tags:
 - Finance
 - Banks
@@ -47,6 +51,7 @@ tags:
 - Australia
 - Product Reference Data
 - Payments
+
 tags_raw:
 - Financial
 - Banks
@@ -57,269 +62,34 @@ tags_raw:
 - Australia
 - Product Reference Data
 - Payments
+
 created: '2026-07-20'
-modified: '2026-07-21'
+
+modified: '2026-10-20'
+
 specificationVersion: '0.23'
-apis:
-- aid: macquarie-bank:macquarie-connectivity-data-api
-  name: Macquarie Connectivity & Data API
-  tags:
-  - Payments
-  - Account
-  - Business Banking
-  - Developer Portal
-  - Connectivity
-  tags_raw:
-  - Payments
-  - Accounts
-  - Business Banking
-  - Developer Portal
-  - Connectivity
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.macquariebank.io/devportal/
-  properties:
-  - url: https://developer.macquariebank.io/devportal/
-    type: DeveloperPortal
-  - url: >-
-      https://www.macquarie.com.au/help/business/manage-your-accounts/connectivity-services-and-open-banking/macquarie-connectivity-solutions.html
-    type: Documentation
-  description: >-
-    Macquarie's connectivity / data APIs for business, documented through the registered Macquarie developer
-    portal, let approved businesses and software partners automate account information retrieval and payment
-    operations (balances, transaction history, payment automation) as an alternative to file-based banking.
-    Partner-gated - access, credentials and the OpenAPI/Swagger reference are only available after registration
-    and approval through the developer portal (the portal is edge-protected and returns HTTP 403 to unauthenticated
-    requests); no public, downloadable spec is published, so none is fabricated here.
-- aid: macquarie-bank:macquarie-deft-payments-api
-  name: Macquarie DEFT Payments API
-  tags:
-  - Payments
-  - Direct Debit
-  - Developer Portal
-  - Business Banking
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.macquariebank.io/devportal/
-  properties:
-  - url: https://developer.macquariebank.io/devportal/
-    type: DeveloperPortal
-  - url: https://www.macquarie.com.au/help/business/deft.html
-    type: Documentation
-  description: >-
-    Macquarie's DEFT payments platform, surfaced through the registered Macquarie developer portal, lets
-    businesses build branded payment experiences with tokenised credit card, bank account and direct debit
-    APIs, payment schedules and one-off payments. Documentation and access require registration through
-    the developer portal (no unauthenticated public base URL is published).
-- aid: macquarie-bank:macquarie-bank-banking-account-balances-api
-  name: Macquarie Bank Banking Account Balances API
-  description: Banking Account Balance endpoints
-  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
-  baseURL: https://api.macquariebank.io/cds-au/v1/banking
-  tags:
-  - Banking Account Balances
-  properties:
-  - type: OpenAPI
-    url: openapi/macquarie-bank-banking-account-balances-api-openapi.yml
-  - type: Documentation
-    url: https://www.macquarie.com.au/digital-banking/open-banking.html
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-products
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#common-apis_common-apis_get-status
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-accounts
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-transactions-for-account
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-direct-debits-for-account
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-payees
-- aid: macquarie-bank:macquarie-bank-banking-account-direct-debits-api
-  name: Macquarie Bank Banking Account Direct Debits API
-  description: Banking Account Direct Debit endpoints
-  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
-  baseURL: https://api.macquariebank.io/cds-au/v1/banking
-  tags:
-  - Banking Account Direct Debits
-  properties:
-  - type: OpenAPI
-    url: openapi/macquarie-bank-banking-account-direct-debits-api-openapi.yml
-  - type: Documentation
-    url: https://www.macquarie.com.au/digital-banking/open-banking.html
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-products
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#common-apis_common-apis_get-status
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-accounts
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-transactions-for-account
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-direct-debits-for-account
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-payees
-- aid: macquarie-bank:macquarie-bank-banking-account-scheduled-payments-api
-  name: Macquarie Bank Banking Account Scheduled Payments API
-  description: Banking Account Scheduled Payment endpoints
-  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
-  baseURL: https://api.macquariebank.io/cds-au/v1/banking
-  tags:
-  - Banking Account Scheduled Payments
-  properties:
-  - type: OpenAPI
-    url: openapi/macquarie-bank-banking-account-scheduled-payments-api-openapi.yml
-  - type: Documentation
-    url: https://www.macquarie.com.au/digital-banking/open-banking.html
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-products
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#common-apis_common-apis_get-status
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-accounts
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-transactions-for-account
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-direct-debits-for-account
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-payees
-- aid: macquarie-bank:macquarie-bank-banking-account-transactions-api
-  name: Macquarie Bank Banking Account Transactions API
-  description: Banking Account Transaction endpoints
-  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
-  baseURL: https://api.macquariebank.io/cds-au/v1/banking
-  tags:
-  - Banking Account Transactions
-  properties:
-  - type: OpenAPI
-    url: openapi/macquarie-bank-banking-account-transactions-api-openapi.yml
-  - type: Documentation
-    url: https://www.macquarie.com.au/digital-banking/open-banking.html
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-products
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#common-apis_common-apis_get-status
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-accounts
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-transactions-for-account
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-direct-debits-for-account
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-payees
-- aid: macquarie-bank:macquarie-bank-banking-accounts-api
-  name: Macquarie Bank Banking Accounts API
-  description: Banking Account endpoints
-  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
-  baseURL: https://api.macquariebank.io/cds-au/v1/banking
-  tags:
-  - Banking Accounts
-  properties:
-  - type: OpenAPI
-    url: openapi/macquarie-bank-banking-accounts-api-openapi.yml
-  - type: Documentation
-    url: https://www.macquarie.com.au/digital-banking/open-banking.html
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-products
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#common-apis_common-apis_get-status
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-accounts
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-transactions-for-account
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-direct-debits-for-account
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-payees
-- aid: macquarie-bank:macquarie-bank-banking-payees-api
-  name: Macquarie Bank Banking Payees API
-  description: Banking Payee endpoints
-  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
-  baseURL: https://api.macquariebank.io/cds-au/v1/banking
-  tags:
-  - Banking Payees
-  properties:
-  - type: OpenAPI
-    url: openapi/macquarie-bank-banking-payees-api-openapi.yml
-  - type: Documentation
-    url: https://www.macquarie.com.au/digital-banking/open-banking.html
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-products
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#common-apis_common-apis_get-status
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-accounts
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-transactions-for-account
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-direct-debits-for-account
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-payees
-- aid: macquarie-bank:macquarie-bank-banking-products-api
-  name: Macquarie Bank Banking Products API
-  description: Banking Product endpoints
-  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
-  baseURL: https://api.macquariebank.io/cds-au/v1/banking
-  tags:
-  - Banking Products
-  properties:
-  - type: OpenAPI
-    url: openapi/macquarie-bank-banking-products-api-openapi.yml
-  - type: Documentation
-    url: https://www.macquarie.com.au/digital-banking/open-banking.html
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-products
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#common-apis_common-apis_get-status
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-accounts
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-transactions-for-account
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-direct-debits-for-account
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-payees
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+
 common:
+- type: RateLimits
+  url: rate-limits/macquarie-bank-rate-limits.yml
+- type: Spectral
+  url: rules/macquarie-bank-rules.yml
+- type: JSONLD
+  url: json-ld/macquarie-bank-context.jsonld
+- type: Vocabulary
+  url: vocabulary/macquarie-bank-vocabulary.yml
+- type: Overlay
+  url: overlays/macquarie-bank-banking-account-balances-api-overlay.yaml
+- type: Hosts
+  url: hosts/macquarie-bank-hosts.yml
+- type: IntegrationEdges
+  url: integrations/macquarie-bank-integration-edges.yml
+- type: Vendors
+  url: vendors/macquarie-bank-vendors.yml
 - type: CapabilityMap
   url: capabilities/macquarie-bank-capability-edges.yml
   name: Macquarie Bank Business Capability Map
@@ -347,11 +117,9 @@ common:
   url: data-model/macquarie-bank-data-model.yml
 - type: X-MCPServerCandidate
   url: mcp/macquarie-bank-mcp.yml
-  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
-- type: Overlay
-  url: overlays/macquarie-bank-cds-banking-products-overlay.yaml
-- type: LLMsTxt
-  url: llms/macquarie-bank-llms.txt
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published
+    API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting
+    the artifact-type surfaces with a server that does not exist.'
 - type: AgentSkill
   url: skills/_index.yml
 - type: Sandbox
@@ -363,15 +131,19 @@ common:
 - type: Documentation
   url: https://www.macquarie.com.au/digital-banking/open-banking.html
 - type: LinkedIn
-  url: https://www.linkedin.com/company/macquarie-group/
+  url: https://www.linkedin.com/company/macquariegroup/
 - type: CDRRegister
   url: https://www.cdr.gov.au/find-a-provider
 - type: Support
-  url: https://www.macquarie.com.au/help.html
+  url: https://www.macquarie.com.au/help/personal.html
+- type: Newsroom
+  url: https://www.macquarie.com.au/newsroom.html
+- type: Contact
+  url: https://www.macquarie.com.au/contact-us.html
 - type: PrivacyPolicy
-  url: https://www.macquarie.com.au/privacy-and-security.html
+  url: https://www.macquarie.com.au/privacy-and-cookies.html
 - type: TermsOfService
-  url: https://www.macquarie.com.au/terms-and-conditions.html
+  url: https://www.macquarie.com.au/important-information.html
 - type: APIReference
   url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api
 - type: VulnerabilityDisclosure
@@ -382,6 +154,279 @@ common:
   url: https://www.macquarie.com/us/en/disclosures/cybersecurity.html
 - type: SignUp
   url: https://developer.macquariebank.io/devportal/
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+
+apis:
+- aid: macquarie-bank:macquarie-connectivity-data-api
+  name: Macquarie Connectivity & Data API
+  tags:
+  - Payments
+  - Account
+  - Business Banking
+  - Developer Portal
+  - Connectivity
+  tags_raw:
+  - Payments
+  - Accounts
+  - Business Banking
+  - Developer Portal
+  - Connectivity
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.macquariebank.io/devportal/
+  properties:
+  - url: https://developer.macquariebank.io/devportal/
+    type: DeveloperPortal
+  - url: https://www.macquarie.com.au/help/business/manage-your-accounts/data-sharing-and-integration/macquarie-connectivity-solutions.html
+    type: Documentation
+  description: Macquarie's connectivity / data APIs for business, documented through the registered Macquarie developer portal, let approved businesses
+    and software partners automate account information retrieval and payment operations (balances, transaction history, payment automation) as
+    an alternative to file-based banking. Partner-gated - access, credentials and the OpenAPI/Swagger reference are only available after registration
+    and approval through the developer portal (the portal is edge-protected and returns HTTP 403 to unauthenticated requests); no public, downloadable
+    spec is published, so none is fabricated here.
+- aid: macquarie-bank:macquarie-deft-payments-api
+  name: Macquarie DEFT Payments API
+  tags:
+  - Payments
+  - Direct Debit
+  - Developer Portal
+  - Business Banking
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.macquariebank.io/devportal/
+  properties:
+  - url: https://developer.macquariebank.io/devportal/
+    type: DeveloperPortal
+  - url: https://www.macquarie.com.au/help/business/deft.html
+    type: Documentation
+  description: Macquarie's DEFT payments platform, surfaced through the registered Macquarie developer portal, lets businesses build branded payment
+    experiences with tokenised credit card, bank account and direct debit APIs, payment schedules and one-off payments. Documentation and access
+    require registration through the developer portal (no unauthenticated public base URL is published).
+- aid: macquarie-bank:macquarie-bank-banking-account-balances-api
+  name: Macquarie Bank Banking Account Balances API
+  description: Banking Account Balance endpoints
+  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
+  baseURL: https://api.macquariebank.io/cds-au/v1
+  tags:
+  - Banking Account Balances
+  properties:
+  - type: OpenAPI
+    url: openapi/macquarie-bank-banking-account-balances-api-openapi.yml
+  - type: Documentation
+    url: https://www.macquarie.com.au/digital-banking/open-banking.html
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-products
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#common-apis_common-apis_get-status
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-accounts
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-transactions-for-account
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-direct-debits-for-account
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-payees
+  - type: JSONSchema
+    url: json-schema/macquarie-bank-response-banking-accounts-balance-list-schema.json
+  - type: JSONSchema
+    url: json-schema/macquarie-bank-response-banking-accounts-balance-by-id-schema.json
+- aid: macquarie-bank:macquarie-bank-banking-account-direct-debits-api
+  name: Macquarie Bank Banking Account Direct Debits API
+  description: Banking Account Direct Debit endpoints
+  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
+  baseURL: https://api.macquariebank.io/cds-au/v1
+  tags:
+  - Banking Account Direct Debits
+  properties:
+  - type: OpenAPI
+    url: openapi/macquarie-bank-banking-account-direct-debits-api-openapi.yml
+  - type: Documentation
+    url: https://www.macquarie.com.au/digital-banking/open-banking.html
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-products
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#common-apis_common-apis_get-status
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-accounts
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-transactions-for-account
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-direct-debits-for-account
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-payees
+  - type: JSONSchema
+    url: json-schema/macquarie-bank-response-banking-direct-debit-authorisation-list-schema.json
+- aid: macquarie-bank:macquarie-bank-banking-account-scheduled-payments-api
+  name: Macquarie Bank Banking Account Scheduled Payments API
+  description: Banking Account Scheduled Payment endpoints
+  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
+  baseURL: https://api.macquariebank.io/cds-au/v1
+  tags:
+  - Banking Account Scheduled Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/macquarie-bank-banking-account-scheduled-payments-api-openapi.yml
+  - type: Documentation
+    url: https://www.macquarie.com.au/digital-banking/open-banking.html
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-products
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#common-apis_common-apis_get-status
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-accounts
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-transactions-for-account
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-direct-debits-for-account
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-payees
+  - type: JSONSchema
+    url: json-schema/macquarie-bank-response-banking-scheduled-payments-list-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/macquarie-bank-response-banking-instalment-plan-list-schema.json
+- aid: macquarie-bank:macquarie-bank-banking-account-transactions-api
+  name: Macquarie Bank Banking Account Transactions API
+  description: Banking Account Transaction endpoints
+  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
+  baseURL: https://api.macquariebank.io/cds-au/v1
+  tags:
+  - Banking Account Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/macquarie-bank-banking-account-transactions-api-openapi.yml
+  - type: Documentation
+    url: https://www.macquarie.com.au/digital-banking/open-banking.html
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-products
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#common-apis_common-apis_get-status
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-accounts
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-transactions-for-account
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-direct-debits-for-account
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-payees
+  - type: JSONSchema
+    url: json-schema/macquarie-bank-response-banking-transaction-list-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/macquarie-bank-response-banking-transaction-by-id-v3-schema.json
+- aid: macquarie-bank:macquarie-bank-banking-accounts-api
+  name: Macquarie Bank Banking Accounts API
+  description: Banking Account endpoints
+  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
+  baseURL: https://api.macquariebank.io/cds-au/v1
+  tags:
+  - Banking Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/macquarie-bank-banking-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://www.macquarie.com.au/digital-banking/open-banking.html
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-products
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#common-apis_common-apis_get-status
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-accounts
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-transactions-for-account
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-direct-debits-for-account
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-payees
+  - type: JSONSchema
+    url: json-schema/macquarie-bank-response-banking-account-list-v3-schema.json
+  - type: JSONSchema
+    url: json-schema/macquarie-bank-response-banking-account-by-id-v5-schema.json
+- aid: macquarie-bank:macquarie-bank-banking-payees-api
+  name: Macquarie Bank Banking Payees API
+  description: Banking Payee endpoints
+  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
+  baseURL: https://api.macquariebank.io/cds-au/v1
+  tags:
+  - Banking Payees
+  properties:
+  - type: OpenAPI
+    url: openapi/macquarie-bank-banking-payees-api-openapi.yml
+  - type: Documentation
+    url: https://www.macquarie.com.au/digital-banking/open-banking.html
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-products
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#common-apis_common-apis_get-status
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-accounts
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-transactions-for-account
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-direct-debits-for-account
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-payees
+  - type: JSONSchema
+    url: json-schema/macquarie-bank-response-banking-payee-list-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/macquarie-bank-response-banking-payee-by-id-v2-schema.json
+- aid: macquarie-bank:macquarie-bank-banking-products-api
+  name: Macquarie Bank Banking Products API
+  description: Banking Product endpoints
+  humanURL: https://www.macquarie.com.au/digital-banking/open-banking.html
+  baseURL: https://api.macquariebank.io/cds-au/v1
+  tags:
+  - Banking Products
+  properties:
+  - type: OpenAPI
+    url: openapi/macquarie-bank-banking-products-api-openapi.yml
+  - type: Documentation
+    url: https://www.macquarie.com.au/digital-banking/open-banking.html
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-products
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#common-apis_common-apis_get-status
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-accounts
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-transactions-for-account
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-direct-debits-for-account
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-payees
+  - type: JSONSchema
+    url: json-schema/macquarie-bank-response-banking-product-list-v4-schema.json
+  - type: JSONSchema
+    url: json-schema/macquarie-bank-response-banking-product-by-id-v7-schema.json
+
+x-coverage:
+  state: covered
+  reason: enriched
+  detail: Identity pass 2026-10-20. www.macquarie.com.au answers plain HTTP clients (including a browser UA) with 403, but renders normally in
+    a headless browser, so pointers were verified by rendering. Dead PrivacyPolicy/TermsOfService (rendered "Page not found") replaced with the
+    pages linked from the homepage footer; stale LinkedIn and Connectivity Documentation URLs updated. developer.macquariebank.io/devportal/ returns
+    Akamai "Access Denied" even when rendered (edge policy, kept). www.cdr.gov.au timed out from here (not confirmed dead, kept).
+  evidence:
+  - url: https://www.macquarie.com.au/
+    status: 403
+  - url: https://www.macquarie.com.au/privacy-and-security.html
+    status: 404
+  - url: https://www.macquarie.com.au/terms-and-conditions.html
+    status: 404
+  - url: https://www.macquarie.com.au/privacy-and-cookies.html
+    status: 200
+  - url: https://www.macquarie.com.au/important-information.html
+    status: 200
+  - url: https://www.macquarie.com.au/newsroom.html
+    status: 200
+  - url: https://www.macquarie.com.au/contact-us.html
+    status: 200
+  - url: https://www.macquarie.com.au/help/personal.html
+    status: 200
+  - url: https://www.macquarie.com.au/help/business/manage-your-accounts/data-sharing-and-integration/macquarie-connectivity-solutions.html
+    status: 200
+  - url: https://www.linkedin.com/company/macquarie-group/
+    status: 404
+  - url: https://developer.macquariebank.io/devportal/
+    status: 403
+x-enrichment:
+  date: '2026-10-20'
+  status: enriched
+  artifacts_added: 32
+  pass: modular-v1
+  engine: identity=anthropic,contract=anthropic,surfaces=anthropic,docs=anthropic,regulatory=anthropic

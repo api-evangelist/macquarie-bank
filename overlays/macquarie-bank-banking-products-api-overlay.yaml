@@ -1,0 +1,24 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for CDR Banking Banking Products API
+  version: 1.0.0
+extends: openapi/macquarie-bank-banking-products-api-openapi.yml
+generated: '2026-10-20'
+method: generated
+source: openapi/macquarie-bank-banking-products-api-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: macquarie-bank
+    x-apievangelist-standard: Consumer Data Standards (AU) CDR Banking API
+    x-apievangelist-access: public, unauthenticated (x-v header)
+- target: $.paths['/banking/products'].get
+  update:
+    x-apievangelist-mcp-tool: list_banking_products
+    x-apievangelist-agent-access: open
+    x-apievangelist-pagination: page / page-size; follow links.next
+- target: $.paths['/banking/products/{productId}'].get
+  update:
+    x-apievangelist-mcp-tool: get_banking_product_detail
+    x-apievangelist-agent-access: open
+    x-apievangelist-pagination: none

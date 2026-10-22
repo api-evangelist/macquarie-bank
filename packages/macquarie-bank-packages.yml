@@ -1,0 +1,15 @@
+generated: '2026-10-20'
+method: none
+packages: []
+note: >-
+  No first-party client libraries found. registry.npmjs.org and pypi.org return 404 for
+  macquarie, macquarie-bank and macquariebank; an npm search for "macquarie" returns only
+  third-party packages (macquarie-ui by excelian-dev, an Angular module, not a Macquarie
+  Bank API client); a GitHub repository search for "macquarie bank api" found no
+  Macquarie-owned SDK repository. The developer portal is gated (403), so SDKs behind
+  registration, if any, could not be checked.
+checked:
+- https://registry.npmjs.org/macquarie-bank (404)
+- https://pypi.org/pypi/macquarie-bank/json (404)
+- https://registry.npmjs.org/-/v1/search?text=macquarie
+- https://api.github.com/search/repositories?q=macquarie+bank+api

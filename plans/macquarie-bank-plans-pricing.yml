@@ -1,0 +1,23 @@
+name: Macquarie Bank pricing
+generated: '2026-10-20'
+method: none
+audience: unclear
+pricing_basis: none
+published: false
+plan_count: 0
+plans: []
+delivery:
+  model: managed
+note: >-
+  No API pricing or plans are published. The Product Reference Data API
+  (api.macquariebank.io/cds-au/v1/banking/products) is public and unauthenticated as
+  the Consumer Data Right requires; CDR data sharing is available only to accredited
+  data recipients; the DEFT / Macquarie Connect developer portal
+  (developer.macquariebank.io/devportal/, 403 to unauthenticated clients) is
+  registration-gated. Retail account fees and loan rates on macquarie.com.au are
+  consumer product pricing, not API pricing, and are not recorded here.
+checked:
+- url: https://developer.macquariebank.io/devportal/
+  status: 403
+- url: https://www.macquarie.com.au/digital-banking/open-banking.html
+  status: 403 to curl; rendered via headless browser, no pricing content

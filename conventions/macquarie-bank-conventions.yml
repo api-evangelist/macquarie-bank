@@ -32,6 +32,7 @@ request_tracing:
   interaction_id_header: x-fapi-interaction-id
   note: FAPI interaction id echoed on data-sharing responses for correlation.
 idempotency:
+  coverage: na
   supported: false
   note: Product Reference Data and data-sharing surfaces harvested here are read-only
     (GET); there is no state-changing operation and no idempotency-key contract.
@@ -43,6 +44,14 @@ rate_limiting:
   note: CDR data holders enforce Consumer Data Standards traffic-threshold NFRs
     (per-session and per-consumer transaction thresholds); specific signalling
     headers are not published on the public PRD surface.
+  status_code: 429
+  retry_after: Retry-After (optional per CDS; not observed on the live PRD response 2026-10-20)
+  see: rate-limits/macquarie-bank-rate-limits.yml
 metadata:
   response_wrapper: '{ data, links, meta }'
   note: All CDS responses wrap the payload in a top-level data object with links and meta.
+reversibility:
+  coverage: na
+  note: No write surface. The only POST operations in the harvested contracts are
+    bulk-retrieval reads (POST with a list of accountIds in the body); no operation
+    creates, changes or deletes a resource, so there is nothing to reverse.

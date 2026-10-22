@@ -1,82 +1,152 @@
-generated: '2026-07-20'
+name: Macquarie Bank MCP server (candidate)
+generated: '2026-10-20'
 method: derived
 status: candidate
-source: openapi/macquarie-bank-cds-banking-products-openapi.yml
-note: 'No official Macquarie or CDR-wide hosted MCP server was found. This is a CANDIDATE
-
-  tool surface derived one-tool-per-operation from the harvested CDS Banking API.
-
-  The public Product Reference Data tools (list_banking_products, get_banking_product_detail)
-
-  are unauthenticated (x-v header only); all account/transaction tools require CDR
-
-  Accredited Data Recipient status, consumer consent, and MTLS-bound OAuth tokens.
-
-  '
-server:
-  name: macquarie-bank
-  transport: http
-tools:
-- name: list_banking_products
-  description: List Macquarie Bank publicly offered banking products (unauthenticated).
-  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listBankingProducts
-- name: get_banking_product_detail
-  description: Get detail for a single publicly offered product (unauthenticated).
-  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#getBankingProductDetail
-- name: list_banking_accounts
-  description: List a consenting consumer's accounts (requires CDR consent).
-  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listBankingAccounts
-- name: get_banking_account_detail
-  description: Get detail for a specific account.
-  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#getBankingAccountDetail
-- name: get_banking_balance
-  description: Get the balance for a specific account.
-  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#getBankingBalance
-- name: list_banking_balances_bulk
-  description: List balances across all consented accounts.
-  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listBankingBalancesBulk
-- name: list_banking_balances_specific_accounts
-  description: List balances for a supplied set of accounts.
-  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listBankingBalancesSpecificAccounts
-- name: list_banking_transactions
-  description: List transactions for an account.
-  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listBankingTransactions
-- name: get_banking_transaction_detail
-  description: Get detail for a specific transaction.
-  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#getBankingTransactionDetail
-- name: list_direct_debits
-  description: List direct debits for an account.
-  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listDirectDebits
-- name: list_direct_debits_bulk
-  description: List direct debits across all consented accounts.
-  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listDirectDebitsBulk
-- name: list_direct_debits_specific_accounts
-  description: List direct debits for a supplied set of accounts.
-  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listDirectDebitsSpecificAccounts
-- name: list_scheduled_payments
-  description: List scheduled payments for an account.
-  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listScheduledPayments
-- name: list_scheduled_payments_bulk
-  description: List scheduled payments across all consented accounts.
-  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listScheduledPaymentsBulk
-- name: list_scheduled_payments_specific_accounts
-  description: List scheduled payments for a supplied set of accounts.
-  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listScheduledPaymentsSpecificAccounts
-- name: list_instalment_plans
-  description: List instalment plans for an account.
-  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listInstalmentPlans
-- name: list_instalment_plans_bulk
-  description: List instalment plans across all consented accounts.
-  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listInstalmentPlansBulk
-- name: list_banking_payees
-  description: List saved payees.
-  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#listBankingPayees
-- name: get_banking_payee_detail
-  description: Get detail for a specific payee.
-  source_operation: openapi/macquarie-bank-cds-banking-products-openapi.yml#getBankingPayeeDetail
+source:
+- openapi/macquarie-bank-banking-account-balances-api-openapi.yml
+- openapi/macquarie-bank-banking-account-direct-debits-api-openapi.yml
+- openapi/macquarie-bank-banking-account-scheduled-payments-api-openapi.yml
+- openapi/macquarie-bank-banking-account-transactions-api-openapi.yml
+- openapi/macquarie-bank-banking-accounts-api-openapi.yml
+- openapi/macquarie-bank-banking-payees-api-openapi.yml
+- openapi/macquarie-bank-banking-products-api-openapi.yml
+note: 'No official Macquarie Bank (or CDR-wide) MCP server was found: a web search on 2026-10-20 returned
+  nothing naming Macquarie, and developer.macquariebank.io/mcp and /.well-known/mcp.json returned 404
+  (gateway "Resource not found"). This is a CANDIDATE tool list derived one-tool-per-operation from the
+  CDS Banking contracts saved under openapi/. Only the Product Reference Data tools are openly callable;
+  all account data tools require CDR accreditation, consumer consent and MTLS-bound FAPI tokens.'
 deployment:
   mode: none
+  auth: unknown
   verified: derived
-  tools: 19
-  checked: '2026-08-12'
-  source: catalog MCP census
+probes:
+- url: https://developer.macquariebank.io/mcp
+  status: 404
+- url: https://developer.macquariebank.io/.well-known/mcp.json
+  status: 404
+server:
+  name: macquarie-bank
+  transport: none
+tools:
+- name: list_banking_balances_bulk
+  description: Get Bulk Balances (requires CDR Accredited Data Recipient consent, FAPI/MTLS OAuth).
+  source_operation: openapi/macquarie-bank-banking-account-balances-api-openapi.yml#listBankingBalancesBulk
+  method: GET
+  path: /banking/accounts/balances
+  auth: oauth
+- name: list_banking_balances_specific_accounts
+  description: Get Balances For Specific Accounts (requires CDR Accredited Data Recipient consent, FAPI/MTLS
+    OAuth).
+  source_operation: openapi/macquarie-bank-banking-account-balances-api-openapi.yml#listBankingBalancesSpecificAccounts
+  method: POST
+  path: /banking/accounts/balances
+  auth: oauth
+- name: get_banking_balance
+  description: Get Account Balance (requires CDR Accredited Data Recipient consent, FAPI/MTLS OAuth).
+  source_operation: openapi/macquarie-bank-banking-account-balances-api-openapi.yml#getBankingBalance
+  method: GET
+  path: /banking/accounts/{accountId}/balance
+  auth: oauth
+- name: list_direct_debits
+  description: Get Direct Debits For Account (requires CDR Accredited Data Recipient consent, FAPI/MTLS
+    OAuth).
+  source_operation: openapi/macquarie-bank-banking-account-direct-debits-api-openapi.yml#listDirectDebits
+  method: GET
+  path: /banking/accounts/{accountId}/direct-debits
+  auth: oauth
+- name: list_direct_debits_bulk
+  description: Get Bulk Direct Debits (requires CDR Accredited Data Recipient consent, FAPI/MTLS OAuth).
+  source_operation: openapi/macquarie-bank-banking-account-direct-debits-api-openapi.yml#listDirectDebitsBulk
+  method: GET
+  path: /banking/accounts/direct-debits
+  auth: oauth
+- name: list_direct_debits_specific_accounts
+  description: Get Direct Debits For Specific Accounts (requires CDR Accredited Data Recipient consent,
+    FAPI/MTLS OAuth).
+  source_operation: openapi/macquarie-bank-banking-account-direct-debits-api-openapi.yml#listDirectDebitsSpecificAccounts
+  method: POST
+  path: /banking/accounts/direct-debits
+  auth: oauth
+- name: list_scheduled_payments
+  description: Get Scheduled Payments for Account (requires CDR Accredited Data Recipient consent, FAPI/MTLS
+    OAuth).
+  source_operation: openapi/macquarie-bank-banking-account-scheduled-payments-api-openapi.yml#listScheduledPayments
+  method: GET
+  path: /banking/accounts/{accountId}/payments/scheduled
+  auth: oauth
+- name: list_scheduled_payments_bulk
+  description: Get Scheduled Payments Bulk (requires CDR Accredited Data Recipient consent, FAPI/MTLS
+    OAuth).
+  source_operation: openapi/macquarie-bank-banking-account-scheduled-payments-api-openapi.yml#listScheduledPaymentsBulk
+  method: GET
+  path: /banking/payments/scheduled
+  auth: oauth
+- name: list_scheduled_payments_specific_accounts
+  description: Get Scheduled Payments For Specific Accounts (requires CDR Accredited Data Recipient consent,
+    FAPI/MTLS OAuth).
+  source_operation: openapi/macquarie-bank-banking-account-scheduled-payments-api-openapi.yml#listScheduledPaymentsSpecificAccounts
+  method: POST
+  path: /banking/payments/scheduled
+  auth: oauth
+- name: list_instalment_plans
+  description: Get Instalment Plans for Account (requires CDR Accredited Data Recipient consent, FAPI/MTLS
+    OAuth).
+  source_operation: openapi/macquarie-bank-banking-account-scheduled-payments-api-openapi.yml#listInstalmentPlans
+  method: GET
+  path: /banking/accounts/{accountId}/payments/plans
+  auth: oauth
+- name: list_instalment_plans_bulk
+  description: Get Instalment Plans Bulk (requires CDR Accredited Data Recipient consent, FAPI/MTLS OAuth).
+  source_operation: openapi/macquarie-bank-banking-account-scheduled-payments-api-openapi.yml#listInstalmentPlansBulk
+  method: GET
+  path: /banking/accounts/payments/plans
+  auth: oauth
+- name: list_banking_transactions
+  description: Get Transactions For Account (requires CDR Accredited Data Recipient consent, FAPI/MTLS
+    OAuth).
+  source_operation: openapi/macquarie-bank-banking-account-transactions-api-openapi.yml#listBankingTransactions
+  method: GET
+  path: /banking/accounts/{accountId}/transactions
+  auth: oauth
+- name: get_banking_transaction_detail
+  description: Get Transaction Detail (requires CDR Accredited Data Recipient consent, FAPI/MTLS OAuth).
+  source_operation: openapi/macquarie-bank-banking-account-transactions-api-openapi.yml#getBankingTransactionDetail
+  method: GET
+  path: /banking/accounts/{accountId}/transactions/{transactionId}
+  auth: oauth
+- name: list_banking_accounts
+  description: Get Accounts (requires CDR Accredited Data Recipient consent, FAPI/MTLS OAuth).
+  source_operation: openapi/macquarie-bank-banking-accounts-api-openapi.yml#listBankingAccounts
+  method: GET
+  path: /banking/accounts
+  auth: oauth
+- name: get_banking_account_detail
+  description: Get Account Detail (requires CDR Accredited Data Recipient consent, FAPI/MTLS OAuth).
+  source_operation: openapi/macquarie-bank-banking-accounts-api-openapi.yml#getBankingAccountDetail
+  method: GET
+  path: /banking/accounts/{accountId}
+  auth: oauth
+- name: list_banking_payees
+  description: Get Payees (requires CDR Accredited Data Recipient consent, FAPI/MTLS OAuth).
+  source_operation: openapi/macquarie-bank-banking-payees-api-openapi.yml#listBankingPayees
+  method: GET
+  path: /banking/payees
+  auth: oauth
+- name: get_banking_payee_detail
+  description: Get Payee Detail (requires CDR Accredited Data Recipient consent, FAPI/MTLS OAuth).
+  source_operation: openapi/macquarie-bank-banking-payees-api-openapi.yml#getBankingPayeeDetail
+  method: GET
+  path: /banking/payees/{payeeId}
+  auth: oauth
+- name: list_banking_products
+  description: Get Products (public Product Reference Data, unauthenticated; x-v header only).
+  source_operation: openapi/macquarie-bank-banking-products-api-openapi.yml#listBankingProducts
+  method: GET
+  path: /banking/products
+  auth: none
+- name: get_banking_product_detail
+  description: Get Product Detail (public Product Reference Data, unauthenticated; x-v header only).
+  source_operation: openapi/macquarie-bank-banking-products-api-openapi.yml#getBankingProductDetail
+  method: GET
+  path: /banking/products/{productId}
+  auth: none

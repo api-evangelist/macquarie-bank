@@ -1,0 +1,96 @@
+name: Macquarie Bank rate limits
+generated: '2026-10-20'
+method: searched
+source: https://consumerdatastandardsaustralia.github.io/standards/
+note: >-
+  Macquarie Bank publishes no rate limits of its own (its developer portal at
+  developer.macquariebank.io returns 403 to unauthenticated clients). As a CDR data
+  holder it is bound by the Consumer Data Standards Non-functional Requirements
+  "Traffic Thresholds", quoted verbatim below; calls above these thresholds may be
+  throttled or rejected by the data holder. A live unauthenticated GET of
+  https://api.macquariebank.io/cds-au/v1/banking/products (2026-10-20, 200) returned no
+  RateLimit-* / X-RateLimit-* headers.
+limit_count: 13
+signaling:
+  status_code: 429
+  status_text: "The operation was refused as too many requests have been made within a certain timeframe."
+  headers:
+  - name: Retry-After
+    required: optional
+    text: "Header indicating the time (in seconds) that the client should wait before retrying an operation."
+  observed_live_headers: []
+limits:
+- name: customer-present-per-customer
+  limit_text: "10 TPS per customer"
+  max: 10
+  window: 1 second
+  scope: per-customer
+  traffic: Customer Present and authorisation
+- name: customer-present-per-software-product
+  limit_text: "50 TPS per Data Recipient Software Product"
+  max: 50
+  window: 1 second
+  scope: per-data-recipient-software-product
+  traffic: Customer Present and authorisation
+- name: customer-present-sessions
+  limit_text: "Unlimited sessions per day"
+  scope: per-customer
+  traffic: Customer Present and authorisation
+- name: unattended-sessions-per-day
+  limit_text: "20 sessions per day, per customer, per Data Recipient Software Product"
+  max: 20
+  window: 1 day
+  scope: per-customer-per-data-recipient-software-product
+  traffic: Unattended (low traffic periods)
+- name: unattended-calls-per-session
+  limit_text: "100 total calls per session"
+  max: 100
+  scope: per-session
+  traffic: Unattended (low traffic periods)
+- name: unattended-tps-per-session
+  limit_text: "5TPS per session"
+  max: 5
+  window: 1 second
+  scope: per-session
+  traffic: Unattended (low traffic periods)
+- name: unattended-tps-per-software-product
+  limit_text: "50 TPS per Data Recipient Software Product"
+  max: 50
+  window: 1 second
+  scope: per-data-recipient-software-product
+  traffic: Unattended (low traffic periods)
+- name: unattended-high-traffic
+  limit_text: "For Unattended traffic during high traffic periods only best effort support is required."
+  scope: per-data-holder
+  traffic: Unattended (high traffic periods)
+- name: secure-traffic-peak-0-10000
+  limit_text: "For Data Holders with 0 to 10,000 active authorisations, 150 peak TPS total across all consumers."
+  max: 150
+  window: 1 second
+  scope: per-data-holder
+  kind: burst
+- name: secure-traffic-peak-over-60000
+  limit_text: "For Data Holders with more than 60,000 active authorisations, 450 peak TPS total across all consumers."
+  max: 450
+  window: 1 second
+  scope: per-data-holder
+  kind: burst
+  note: Intermediate bands step by 50 TPS per 10,000 authorisations (200, 250, 300, 350, 400); which band applies to Macquarie is not published.
+- name: secure-traffic-peak-10001-20000
+  limit_text: "For Data Holders with 10,001 to 20,000 active authorisations, 200 peak TPS total across all consumers."
+  max: 200
+  window: 1 second
+  scope: per-data-holder
+  kind: burst
+- name: public-traffic
+  limit_text: "300 TPS total across all consumers (additive to secure traffic)"
+  max: 300
+  window: 1 second
+  scope: per-data-holder
+  endpoint: unauthenticated endpoints (e.g. /cds-au/v1/banking/products, /cds-au/v1/discovery/status)
+- name: low-velocity-data-sets
+  limit_text: "Get Service Point Detail 24 hours 10 calls"
+  max: 10
+  window: 24 hours
+  scope: per-resource-per-arrangement
+  note: Energy-sector low-velocity rule; not applicable to Macquarie's banking endpoints. Listed for completeness of the standard's table only.

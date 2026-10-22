@@ -1,7 +1,7 @@
 ---
-name: List Macquarie Bank public products
+name: macquarie-bank-list-banking-products
 description: Retrieve Macquarie Bank's publicly offered banking products and their detail via the unauthenticated CDR Product Reference Data API.
-api: openapi/macquarie-bank-cds-banking-products-openapi.yml
+api: openapi/macquarie-bank-banking-products-api-openapi.yml
 operations: [listBankingProducts, getBankingProductDetail]
 ---
 

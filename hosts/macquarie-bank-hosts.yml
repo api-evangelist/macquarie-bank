@@ -1,0 +1,134 @@
+generated: '2026-10-20'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 10
+  own: 1
+  other_domain: 7
+  platform: 2
+  roles:
+  - api
+  - docs
+  - other
+  - portal
+  - security
+  - status
+  - website
+hosts:
+- host: api.com.au
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: api.com.au
+  role: api
+  relation: other-domain
+- host: api.gov.au
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: api.gov.au
+  role: api
+  relation: other-domain
+- host: api.macquarie.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: macquarie.com
+  role: api
+  relation: other-domain
+- host: api.macquariebank.io
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - StatusPage
+  serves:
+  - api
+  - cdn
+  vendor: akamai
+  registrable_domain: macquariebank.io
+  role: status
+  relation: other-domain
+- host: consumerdatastandardsaustralia.github.io
+  found_by:
+  - pointer
+  types:
+  - APIReference
+  serves: []
+  registrable_domain: github.io
+  role: docs
+  relation: platform
+- host: developer.macquariebank.io
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - contract-discovery
+  - well-known
+  types:
+  - DeveloperPortal
+  - SignUp
+  serves:
+  - docs
+  registrable_domain: macquariebank.io
+  role: portal
+  relation: other-domain
+- host: www.cdr.gov.au
+  found_by:
+  - pointer
+  - probed
+  - well-known
+  types:
+  - CDRRegister
+  serves: []
+  registrable_domain: cdr.gov.au
+  role: other
+  relation: other-domain
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  types:
+  - LinkedIn
+  serves: []
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform
+- host: www.macquarie.com
+  found_by:
+  - pointer
+  - probed
+  - well-known
+  types:
+  - Security
+  - Compliance
+  serves: []
+  registrable_domain: macquarie.com
+  role: security
+  relation: other-domain
+- host: www.macquarie.com.au
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - well-known
+  types:
+  - Website
+  - Documentation
+  - Support
+  - Newsroom
+  - Contact
+  - PrivacyPolicy
+  - TermsOfService
+  serves:
+  - docs
+  registrable_domain: macquarie.com.au
+  role: website
+  relation: own

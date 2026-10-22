@@ -1,0 +1,102 @@
+generated: '2026-10-20'
+method: searched
+source:
+  - https://www.macquarie.com/au/en/disclosures/privacy-and-cookies.html
+  - https://www.macquarie.com/au/en/disclosures/accessibility.html
+  - https://www.macquarie.com/us/en/disclosures/cybersecurity.html
+checked: '2026-10-20'
+harvest_only: true
+harvest_only_note: >-
+  Records what Macquarie Group publishes on its own legal/trust pages. It does not decide
+  which regimes apply. The dossier's two macquarie.com.au legal pointers
+  (/privacy-and-security.html, /terms-and-conditions.html) returned "Page not found", and
+  other macquarie.com.au paths answered 403 to a plain fetch; the group-wide Privacy Policy on
+  www.macquarie.com (which also covers the CDR policy contact and Macquarie Bank) was read instead.
+summary: >-
+  The Macquarie Group Privacy Policy covers access and correction requests, a data-breach
+  notification commitment (including 72 hours under GDPR), cross-border disclosure with a
+  list of countries, cloud storage outside the country of collection, purpose-bound retention,
+  and that personal data may feed ML/AI scoring and risk tools. The Accessibility page commits
+  to WCAG 2.1 AA over time and links an Accessibility Action Plan 2025-2028. The policy names
+  categories of service providers, not a named subprocessor list. The Cybersecurity disclosure
+  describes internal incident management, not customer notification. The pages read do not
+  mention Global Privacy Control, an SBOM, a transparency report or exit assistance.
+signals:
+  incident_notification:
+    present: true
+    url: https://www.macquarie.com/au/en/disclosures/privacy-and-cookies.html
+    section: Data Breach notification
+    note: Commits to notify individuals of personal-data breaches where local law requires it, within statutory windows (e.g. 72h under GDPR).
+    evidence:
+      - source: https://www.macquarie.com/au/en/disclosures/privacy-and-cookies.html
+        http_status: 200
+        fetched: '2026-10-20'
+        quote: "Macquarie has processes in place to investigate data breaches involving personal information and will notify you of a data breach where we are required to do so under local legislation or as is otherwise appropriate in the circumstances."
+      - source: https://www.macquarie.com/au/en/disclosures/privacy-and-cookies.html
+        http_status: 200
+        fetched: '2026-10-20'
+        quote: "Where notification is required, we will do so promptly and in accordance with the time period for notification provided for under local legislation, for example within 72 hours in jurisdictions governed by the General Data Protection Regulation."
+  data_subject_request:
+    present: true
+    url: https://www.macquarie.com/au/en/disclosures/privacy-and-cookies.html
+    section: How you can access or correct your information
+    note: Access and correction rights by contacting Macquarie; it can refuse for legal or administrative reasons. No self-serve portal or deletion/portability right is described here.
+    evidence:
+      - source: https://www.macquarie.com/au/en/disclosures/privacy-and-cookies.html
+        http_status: 200
+        fetched: '2026-10-20'
+        quote: "You can contact us to request access to or correction of your personal information. In normal circumstances we will give you full access or make the requested corrections to your information."
+  data_residency:
+    present: true
+    url: https://www.macquarie.com/au/en/disclosures/privacy-and-cookies.html
+    section: How we store your information; Cross border Appendix - Disclosure to other countries
+    note: Says data may be stored in the cloud outside the country where it is collected, and lists the countries it may be disclosed to. This is a disclosure, not a residency guarantee.
+    evidence:
+      - source: https://www.macquarie.com/au/en/disclosures/privacy-and-cookies.html
+        http_status: 200
+        fetched: '2026-10-20'
+        quote: "We keep personal information in physical and electronic records, at our premises and the premises of our service providers, which may include processing or storage in the cloud, which may mean in practice that this information is stored outside the country in which it is collected."
+      - source: https://www.macquarie.com/au/en/disclosures/privacy-and-cookies.html
+        http_status: 200
+        fetched: '2026-10-20'
+        quote: "Personal information may be disclosed to Macquarie Group entities and third parties in jurisdictions including: Argentina; Australia; Austria; Bahamas; Belgium; Bermuda Brazil; Bulgaria; Canada; Cayman Islands; Chile; China; Colombia;"
+  data_retention:
+    present: true
+    url: https://www.macquarie.com/au/en/disclosures/privacy-and-cookies.html
+    section: How we store your information
+    note: Retention is tied to purpose and legal obligations. No fixed periods are stated.
+    evidence:
+      - source: https://www.macquarie.com/au/en/disclosures/privacy-and-cookies.html
+        http_status: 200
+        fetched: '2026-10-20'
+        quote: "we retain personal information for as long as necessary for the purpose for which it was provided to us, or as required to satisfy any legal or regulatory requirements."
+  subprocessors:
+    present: false
+    url: https://www.macquarie.com/au/en/disclosures/privacy-and-cookies.html
+    section: When your information is disclosed
+    note: Lists only categories of service providers. No named subprocessor list was found.
+    evidence:
+      - source: https://www.macquarie.com/au/en/disclosures/privacy-and-cookies.html
+        http_status: 200
+        fetched: '2026-10-20'
+        quote: "Subject in all cases to local law, we may share personal information within the Macquarie Group, and may disclose personal information outside the Macquarie Group: to our service providers, who provide services in connection with our products and services"
+  ai_transparency:
+    present: true
+    url: https://www.macquarie.com/au/en/disclosures/privacy-and-cookies.html
+    section: The information we collect (purposes of use)
+    note: Says personal data may be used to model and build scoring/risk tools that may use ML or AI. No separate AI policy or model disclosure was found.
+    evidence:
+      - source: https://www.macquarie.com/au/en/disclosures/privacy-and-cookies.html
+        http_status: 200
+        fetched: '2026-10-20'
+        quote: "model and test data (in a controlled environment) develop scores, risk assessments and related analytical tools including tools that may utilise types of machine learning or artificial intelligence"
+  accessibility_conformance:
+    present: true
+    url: https://www.macquarie.com/au/en/disclosures/accessibility.html
+    section: Accessibility Statement
+    note: Aims for WCAG 2.1 Level AA "over time" and publishes an Accessibility Action Plan 2025-2028 (PDF). This is a target, not a conformance report or VPAT.
+    evidence:
+      - source: https://www.macquarie.com/au/en/disclosures/accessibility.html
+        http_status: 200
+        fetched: '2026-10-20'
+        quote: "we are taking action to enhance the inclusiveness of the digital experiences we provide to our people and our clients, by conforming our websites, applications and portals over time to the design requirements recommended under the Web Content Accessibility Guidelines (WCAG) 2.1, Level AA."
