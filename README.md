@@ -1,4 +1,4 @@
-# Macquarie Bank (macquarie-bank)
+# Macquarie Bank
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,119 +64,193 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Macquarie Bank Limited is an Australian authorised deposit-taking institution (ADI) and the retail and business banking arm of Macquarie Group Limited, the ASX-listed (ASX:MQG) global financial services group headquartered in Sydney. It is a wholly-owned, shareholder-owned subsidiary of a publicly listed parent (not a mutual). As a designated CDR / Open Banking data holder, it exposes a public, unauthenticated Product Reference Data API conforming to the Consumer Data Standards (CDS), alongside consumer-authorised data sharing and a registered developer portal.
+Macquarie Bank Limited is an Australian authorised deposit-taking institution (ADI) and the retail and business banking arm of Macquarie Group Limited, the ASX-listed (ASX:MQG) global financial services group headquartered in Sydney. It is not a mutual or customer-owned bank; it is a wholly-owned, shareholder-owned subsidiary of a publicly listed parent. Its digital bank offers transaction and savings accounts, home loans, credit and charge cards, term deposits, overdrafts and business lending. As a designated data holder under Australia's Consumer Data Right (CDR / Open Banking), Macquarie Bank exposes a public, unauthenticated Product Reference Data (PRD) API conforming to the Consumer Data Standards (CDS), alongside accredited-data-recipient data sharing and a registered developer portal that documents its DEFT payments platform.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/macquarie-bank/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/macquarie-bank/refs/heads/main/apis.yml)
+**Areas:** Finance · Banks · Open Banking · CDR · Consumer Data Right · Consumer Banking · Australia · Product Reference Data · Payments
 
-## Tags
+## Macquarie Bank on APIs.io
 
-- Financial
-- Banks
-- Open Banking
-- CDR
-- Consumer Data Right
-- Consumer Banking
-- Australia
-- Product Reference Data
-- Payments
+Everything profiled for Macquarie Bank is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/macquarie-bank/](https://apis.io/providers/macquarie-bank/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (9)
 
-- **Created:** 2026-07-20
-- **Modified:** 2026-07-20
+- [Macquarie Connectivity & Data API](https://apis.io/apis/macquarie-bank/macquarie-connectivity-data-api/) — Macquarie's connectivity / data APIs for business, documented through the registered Macquarie developer portal, let approved businesses and software…
+- [Macquarie DEFT Payments API](https://apis.io/apis/macquarie-bank/macquarie-deft-payments-api/) — Macquarie's DEFT payments platform, surfaced through the registered Macquarie developer portal, lets businesses build branded payment experiences with…
+- [Macquarie Bank Banking Account Balances API](https://apis.io/apis/macquarie-bank/macquarie-bank-banking-account-balances-api/) — Banking Account Balance endpoints
+- [Macquarie Bank Banking Account Direct Debits API](https://apis.io/apis/macquarie-bank/macquarie-bank-banking-account-direct-debits-api/) — Banking Account Direct Debit endpoints
+- [Macquarie Bank Banking Account Scheduled Payments API](https://apis.io/apis/macquarie-bank/macquarie-bank-banking-account-scheduled-payments-api/) — Banking Account Scheduled Payment endpoints
+- [Macquarie Bank Banking Account Transactions API](https://apis.io/apis/macquarie-bank/macquarie-bank-banking-account-transactions-api/) — Banking Account Transaction endpoints
+- [Macquarie Bank Banking Accounts API](https://apis.io/apis/macquarie-bank/macquarie-bank-banking-accounts-api/) — Banking Account endpoints
+- [Macquarie Bank Banking Payees API](https://apis.io/apis/macquarie-bank/macquarie-bank-banking-payees-api/) — Banking Payee endpoints
+- [Macquarie Bank Banking Products API](https://apis.io/apis/macquarie-bank/macquarie-bank-banking-products-api/) — Banking Product endpoints
 
-## APIs
+### Published properties
 
-### Macquarie Bank CDR Product Reference Data API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Public, unauthenticated Consumer Data Right Product Reference Data API. Get Products and Get Product Detail return Macquarie Bank Limited's publicly offered banking products (transaction and savings accounts, residential mortgages, credit and charge cards, term deposits, overdrafts, business loans, regulated trust accounts) conforming to the DSB Consumer Data Standards. Confirmed live returning HTTP 200 with an `x-v` response header and a `data.products` array (21 products at time of review).
+#### MCP servers (1)
 
-- **Human URL:** [https://www.macquarie.com.au/digital-banking/open-banking.html](https://www.macquarie.com.au/digital-banking/open-banking.html)
-- **Base URL:** `https://api.macquariebank.io/cds-au/v1/banking`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [macquarie-bank](https://apis.io/servers/macquarie-bank/macquarie-bank/)
 
-- CDR
-- Open Banking
-- Product Reference Data
-- Banking Products
-- Public
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://www.macquarie.com.au/digital-banking/open-banking.html)
-- [API Reference](https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api_banking-apis_get-products)
-- [OpenAPI](openapi/macquarie-bank-cds-banking-products-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Macquarie Bank Agentic Access](https://apis.io/agentic-access/macquarie-bank/macquarie-bank-agentic-access/)
 
-### Macquarie Bank CDR Discovery Status API
+#### JSON Schema (13)
 
-Public, unauthenticated Consumer Data Standards discovery endpoints (`GET /discovery/status` and `GET /discovery/outages`) that publish the availability and planned outages of Macquarie Bank's CDR data holder implementation. `GET /discovery/status` confirmed live returning HTTP 200.
+The data models the API reads and writes.
 
-- **Human URL:** [https://www.macquarie.com.au/digital-banking/open-banking.html](https://www.macquarie.com.au/digital-banking/open-banking.html)
-- **Base URL:** `https://api.macquariebank.io/cds-au/v1/discovery`
+- [ResponseBankingAccountByIdV5](https://apis.io/schemas/macquarie-bank/macquarie-bank-response-banking-account-by-id-v5/)
+- [ResponseBankingAccountListV3](https://apis.io/schemas/macquarie-bank/macquarie-bank-response-banking-account-list-v3/)
+- [ResponseBankingAccountsBalanceById](https://apis.io/schemas/macquarie-bank/macquarie-bank-response-banking-accounts-balance-by-id/)
+- [ResponseBankingAccountsBalanceList](https://apis.io/schemas/macquarie-bank/macquarie-bank-response-banking-accounts-balance-list/)
+- [ResponseBankingDirectDebitAuthorisationList](https://apis.io/schemas/macquarie-bank/macquarie-bank-response-banking-direct-debit-authorisation-list/)
+- [ResponseBankingInstalmentPlanList](https://apis.io/schemas/macquarie-bank/macquarie-bank-response-banking-instalment-plan-list/)
+- [ResponseBankingPayeeByIdV2](https://apis.io/schemas/macquarie-bank/macquarie-bank-response-banking-payee-by-id-v2/)
+- [ResponseBankingPayeeListV2](https://apis.io/schemas/macquarie-bank/macquarie-bank-response-banking-payee-list-v2/)
+- [ResponseBankingProductByIdV7](https://apis.io/schemas/macquarie-bank/macquarie-bank-response-banking-product-by-id-v7/)
+- [ResponseBankingProductListV4](https://apis.io/schemas/macquarie-bank/macquarie-bank-response-banking-product-list-v4/)
+- [ResponseBankingScheduledPaymentsListV2](https://apis.io/schemas/macquarie-bank/macquarie-bank-response-banking-scheduled-payments-list-v2/)
+- [ResponseBankingTransactionByIdV3](https://apis.io/schemas/macquarie-bank/macquarie-bank-response-banking-transaction-by-id-v3/)
+- [ResponseBankingTransactionListV2](https://apis.io/schemas/macquarie-bank/macquarie-bank-response-banking-transaction-list-v2/)
 
-#### Tags
+#### JSON-LD (1)
 
-- CDR
-- Open Banking
-- Discovery
-- Status
-- Public
+Linked-data contexts for the provider's vocabulary.
 
-#### Properties
+- [Macquarie Bank Context](https://apis.io/jsonld/macquarie-bank/macquarie-bank-context/)
 
-- [API Reference](https://consumerdatastandardsaustralia.github.io/standards/#common-apis_common-apis_get-status)
-- [OpenAPI](openapi/macquarie-bank-cds-banking-products-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+#### Examples (2)
 
-### Macquarie Bank CDR Banking Data Sharing API
+Example requests and responses.
 
-Consumer-authorised CDR banking data sharing (accounts, balances, transactions, payees, direct debits, scheduled payments) exposed per the DSB Consumer Data Standards. Access requires CDR accreditation as an Accredited Data Recipient and consumer consent, secured with the CDR OAuth2 / OpenID Connect (FAPI-based) security profile over MTLS — not an openly callable endpoint.
+- [Macquarie Bank Banking Products List Response](https://apis.io/examples/macquarie-bank/macquarie-bank-banking-products-list-response/)
+- [Macquarie Bank Discovery Status Response](https://apis.io/examples/macquarie-bank/macquarie-bank-discovery-status-response/)
 
-- **Human URL:** [https://www.macquarie.com.au/digital-banking/open-banking.html](https://www.macquarie.com.au/digital-banking/open-banking.html)
-- **Base URL:** `https://api.macquariebank.io/cds-au/v1/banking`
+#### Collections (7)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- CDR
-- Open Banking
-- Data Sharing
-- Accounts
-- Transactions
-- Authenticated
+- [CDR Banking Banking Account Balances API](https://apis.io/collections/macquarie-bank/open-macquarie-bank-banking-account-balances-api/)
+- [CDR Banking Banking Account Balances Banking Account Direct Debits API](https://apis.io/collections/macquarie-bank/open-macquarie-bank-banking-account-direct-debits-api/)
+- [CDR Banking Banking Account Balances Banking Account Scheduled Payments API](https://apis.io/collections/macquarie-bank/open-macquarie-bank-banking-account-scheduled-payments-api/)
+- [CDR Banking Banking Account Balances Banking Account Transactions API](https://apis.io/collections/macquarie-bank/open-macquarie-bank-banking-account-transactions-api/)
+- [CDR Banking Banking Account Balances Banking Accounts API](https://apis.io/collections/macquarie-bank/open-macquarie-bank-banking-accounts-api/)
+- [CDR Banking Banking Account Balances Banking Payees API](https://apis.io/collections/macquarie-bank/open-macquarie-bank-banking-payees-api/)
+- [CDR Banking Banking Account Balances Banking Products API](https://apis.io/collections/macquarie-bank/open-macquarie-bank-banking-products-api/)
 
-#### Properties
+#### Overlays (7)
 
-- [Documentation](https://www.macquarie.com.au/digital-banking/open-banking.html)
-- [API Reference](https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api)
-- [OpenAPI](openapi/macquarie-bank-cds-banking-products-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+OpenAPI overlays, including conversational phrasing for each operation.
 
-### Macquarie DEFT Payments API
+- [Macquarie Bank Banking Account Balances Api Overlay](https://apis.io/overlays/macquarie-bank/macquarie-bank-banking-account-balances-api-overlay/)
+- [Macquarie Bank Banking Account Direct Debits Api Overlay](https://apis.io/overlays/macquarie-bank/macquarie-bank-banking-account-direct-debits-api-overlay/)
+- [Macquarie Bank Banking Account Scheduled Payments Api Overlay](https://apis.io/overlays/macquarie-bank/macquarie-bank-banking-account-scheduled-payments-api-overlay/)
+- [Macquarie Bank Banking Account Transactions Api Overlay](https://apis.io/overlays/macquarie-bank/macquarie-bank-banking-account-transactions-api-overlay/)
+- [Macquarie Bank Banking Accounts Api Overlay](https://apis.io/overlays/macquarie-bank/macquarie-bank-banking-accounts-api-overlay/)
+- [Macquarie Bank Banking Payees Api Overlay](https://apis.io/overlays/macquarie-bank/macquarie-bank-banking-payees-api-overlay/)
+- [Macquarie Bank Banking Products Api Overlay](https://apis.io/overlays/macquarie-bank/macquarie-bank-banking-products-api-overlay/)
 
-Macquarie's DEFT payments platform, surfaced through the registered Macquarie developer portal, lets businesses build branded payment experiences with tokenised credit card, bank account and direct debit APIs, payment schedules and one-off payments. Documentation and access require registration through the developer portal (no unauthenticated public base URL is published).
+#### Governance rules (1)
 
-- **Human URL:** [https://developer.macquariebank.io/devportal/](https://developer.macquariebank.io/devportal/)
+Spectral rulesets for the provider's contracts.
 
-#### Tags
+- [Macquarie Bank API Rules](https://apis.io/rules/macquarie-bank/macquarie-bank-rules/)
 
-- Payments
-- Direct Debit
-- Developer Portal
-- Business Banking
+#### Security (3)
 
-#### Properties
+Authentication, trust centre, and vulnerability disclosure.
 
-- [Developer Portal](https://developer.macquariebank.io/devportal/)
-- [Documentation](https://www.macquarie.com.au/help/business/deft.html)
+- [Macquarie Bank Authentication](https://apis.io/security/macquarie-bank/macquarie-bank-authentication/)
+- [Macquarie Bank Domain Security](https://apis.io/security/macquarie-bank/macquarie-bank-domain-security/)
+- [Macquarie Bank Vulnerability Disclosure](https://apis.io/security/macquarie-bank/macquarie-bank-vulnerability-disclosure/)
 
-## Common Properties
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Macquarie Bank Scopes](https://apis.io/scopes/macquarie-bank/macquarie-bank-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Macquarie Bank Plans Pricing](https://apis.io/plans/macquarie-bank/macquarie-bank-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Macquarie Bank Rate Limits](https://apis.io/rate-limits/macquarie-bank/macquarie-bank-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.macquarie.com.au/)
-- [Developer Portal](https://developer.macquariebank.io/devportal/)
 - [Documentation](https://www.macquarie.com.au/digital-banking/open-banking.html)
-- [LinkedIn](https://www.linkedin.com/company/macquarie-group/)
-- [CDR Register](https://www.cdr.gov.au/find-a-provider)
+- [API reference](https://consumerdatastandardsaustralia.github.io/standards/#cdr-banking-api)
+- [Sign up](https://developer.macquariebank.io/devportal/)
+- [Support](https://www.macquarie.com.au/help/personal.html)
+- [Security](https://www.macquarie.com/us/en/disclosures/cybersecurity.html)
+- [Compliance](https://www.macquarie.com/us/en/disclosures/cybersecurity.html)
+- [Terms of service](https://www.macquarie.com.au/important-information.html)
+- [Privacy policy](https://www.macquarie.com.au/privacy-and-cookies.html)
+- [Status](https://api.macquariebank.io/cds-au/v1/discovery/status)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 53.2** — developing · rubric 0.24.0 · scored 2026-10-20
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 58.3 |
+| Contract governance | 67.3 |
+| Operational transparency | 54.7 |
+| Developer ergonomics | 51.8 |
+| Access clarity | 21.1 |
+
+**Agent readiness 26.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 40.2** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/macquarie-bank/](https://apis.io/providers/macquarie-bank/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Macquarie Bank: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/macquarie-bank/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
